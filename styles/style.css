@@ -367,7 +367,7 @@ html {
 }
 .mainContent .about .aboutText {
   padding: 50px 20px 10px 50px;
-  width: 70%;
+  width: 60%;
 }
 .mainContent .about .aboutText .aboutMain {
   min-height: 35vh;
@@ -391,7 +391,7 @@ html {
   margin: 10px 0;
 }
 .mainContent .about .aboutText .aboutMain h2 span {
-  color: #A3B351;
+  color: white;
 }
 .mainContent .about .aboutText .aboutSubContent {
   padding: 30px 0;
@@ -411,7 +411,7 @@ html {
   margin: 10px 0;
 }
 .mainContent .about .aboutText .aboutSubContent h3 span {
-  color: #A3B351;
+  color: white;
 }
 .mainContent .about .aboutText .aboutSubContent p {
   line-height: 30px;
@@ -425,8 +425,68 @@ html {
   margin: 0 10px;
 }
 .mainContent .about aside {
+  width: 35%;
+  padding: 30px 10px;
   background: rgba(0, 0, 0, 0.432);
-  width: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.mainContent .about aside h3 {
+  color: #f12365;
+  font-family: "DM Serif Display", serif;
+  text-transform: capitalize;
+  font-size: 3rem;
+  margin: 10px 0;
+}
+.mainContent .about aside h3 span {
+  color: white;
+}
+.mainContent .about aside h4 {
+  color: white;
+  font-family: "DM Serif Display", serif;
+  text-transform: capitalize;
+  font-size: 1.6rem;
+  margin: 10px 0;
+}
+.mainContent .about aside h4 span {
+  color: white;
+}
+.mainContent .about aside i {
+  font-size: 3rem;
+  color: #f12365;
+  margin: 5px;
+}
+.mainContent .about aside img {
+  width: 50px;
+  text-align: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin: 5px;
+}
+.mainContent .about aside div {
+  margin-left: 20px;
+}
+.mainContent .about aside .iconsArr {
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 body {

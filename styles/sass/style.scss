@@ -1,5 +1,5 @@
-@mixin basicHeadingFont($customFontSize){
-    color: #f12365;                    
+@mixin basicHeadingFont($customFontSize, $customFontcolor ){
+    color: $customFontcolor;                    
     font-family: 'DM Serif Display', serif;
     text-transform: capitalize;
     font-size: $customFontSize;
