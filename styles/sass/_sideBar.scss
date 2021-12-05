@@ -1,0 +1,39 @@
+.sideWidthBig{
+    width: 40%;
+    transition:.6s;
+}
+.sideWidthSmll{
+    width: 25%;
+    transition:.6s;
+}
+.sideBar{
+    transition: .5;
+    div {
+        position: sticky;
+        top: 0;
+        .profileImg{
+            background: #f12365;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+        }
+        .sidebarFooter{
+            height: 30vh;
+            padding: 20px; 
+            .socialLinks{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                font-size: 1.6rem;
+                a {
+                    color: white;
+                    transition: .3s;
+                }
+                a:hover, a:focus {
+                    color: #f12365;
+                }
+            }
+        }
+    }
+}

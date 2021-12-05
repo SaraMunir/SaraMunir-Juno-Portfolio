@@ -1,0 +1,105 @@
+.mainContent{
+    width: 75%;
+    min-height: 200vh;
+    position: relative;
+    .circleIcon{
+        width: 100px;
+        height: 100px;
+        position: fixed;
+        top: 40px;
+        right: 40px;
+        z-index: -5;
+    }
+    header {
+        .heroText{
+            min-height: 60vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 120px;
+            h2{
+                font-family: 'DM Serif Display', serif;
+                text-transform: capitalize;
+                font-style: italic;
+                font-size: 2rem;
+                margin: 0;
+            }
+            h1 {
+                @include basicHeadingFont(5rem);
+            }
+            h3 {
+                font-family: 'Poppins', sans-serif;
+                font-size: 1.2rem;
+                font-weight: 400;
+                margin-bottom: 0;
+            }
+
+        }
+        div{
+            img {
+                height: 40vh;
+                object-fit: cover;
+            }
+        }
+    }
+    .about {
+        color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        p {
+            font-size: .9rem;
+        }
+        .aboutText{
+            padding: 50px 20px 10px 50px;
+            width: 70%;
+            .aboutMain{
+                min-height: 35vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                h2{
+                    @include basicHeadingFont(4rem);
+                    span {
+                        color:#A3B351;
+                    }
+                }
+                border-bottom: 2px solid black;
+
+            }
+            .aboutSubContent{
+                // margin-top: 40px;
+                padding: 30px 0;
+                div {
+                    flex-wrap: wrap;
+                    justify-content: space-between
+                }
+                h3 {
+                    @include basicHeadingFont(2.1rem);
+                    span {
+                        color:#A3B351;
+                    }
+                }
+                p {
+                    // width: 45%;
+                    line-height: 30px;
+                    span {
+                        img {
+                            width: 10px;
+                            text-align: center;
+                            margin: 0 10px;
+                        }
+                        color:#cfcfcf;
+                    }
+                }
+            }
+
+        }
+        aside{
+            background: rgba(0, 0, 0, 0.432);
+            width: 30%;
+
+        }
+    }
+}
