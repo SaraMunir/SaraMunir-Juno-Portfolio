@@ -344,6 +344,7 @@ html {
   margin-bottom: 0;
 }
 .mainContent header div img {
+  width: 50%;
   height: 40vh;
   -o-object-fit: cover;
      object-fit: cover;
@@ -492,4 +493,9 @@ section {
 .buttons a:hover, .buttons a:focus {
   color: white;
   background: #f12365;
+}
+
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
 }
