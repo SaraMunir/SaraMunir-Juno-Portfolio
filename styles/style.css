@@ -237,14 +237,14 @@ html {
 
 .sideWidthBig {
   width: 40%;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
+  -webkit-transition: 2s;
+  transition: 2s;
 }
 
 .sideWidthSmll {
-  width: 25%;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
+  width: 20%;
+  -webkit-transition: 2s;
+  transition: 2s;
 }
 
 .sideBar {
@@ -296,7 +296,7 @@ html {
 }
 
 .mainContent {
-  width: 75%;
+  width: 80%;
   min-height: 200vh;
   position: relative;
 }
@@ -364,10 +364,12 @@ html {
 }
 .mainContent .about p {
   font-size: 0.9rem;
+  line-height: 30px;
 }
 .mainContent .about .aboutText {
-  padding: 50px 20px 10px 50px;
+  padding: 30px;
   width: 60%;
+  margin: 0 auto;
 }
 .mainContent .about .aboutText .aboutMain {
   min-height: 35vh;
@@ -413,9 +415,6 @@ html {
 .mainContent .about .aboutText .aboutSubContent h3 span {
   color: white;
 }
-.mainContent .about .aboutText .aboutSubContent p {
-  line-height: 30px;
-}
 .mainContent .about .aboutText .aboutSubContent p span {
   color: #cfcfcf;
 }
@@ -426,7 +425,7 @@ html {
 }
 .mainContent .about aside {
   width: 35%;
-  padding: 30px 10px;
+  padding: 50px;
   background: rgba(0, 0, 0, 0.432);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -435,9 +434,9 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 .mainContent .about aside h3 {
   color: #f12365;
@@ -488,6 +487,78 @@ html {
       -ms-flex-align: center;
           align-items: center;
 }
+.mainContent .portfolio {
+  color: white;
+}
+.mainContent .portfolio .portfolioTxt {
+  padding: 30px;
+  width: 100%;
+  margin-left: 0 auto;
+}
+.mainContent .portfolio .portfolioTxt h2 {
+  color: #f12365;
+  font-family: "DM Serif Display", serif;
+  text-transform: capitalize;
+  font-size: 4rem;
+  margin: 10px 0;
+}
+.mainContent .portfolio .portfolioTxt h2 span {
+  color: white;
+}
+.mainContent .portfolio .portfolios .col1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.mainContent .portfolio .portfolios .projectCntr {
+  position: relative;
+}
+.mainContent .portfolio .portfolios .projectCntr .imgTop {
+  background: #f12364a2;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.mainContent .portfolio .portfolios .projectCntr:hover .imgTop {
+  opacity: 1;
+}
+.mainContent .portfolio .portfolios .imgSettings {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.mainContent .portfolio .portfolios .projectImgsSun {
+  height: 50vh;
+}
+.mainContent .portfolio .portfolios .focusImg {
+  height: 50vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.mainContent .portfolio .portfolios .projectImgStitches {
+  height: 30vh;
+}
+.mainContent .portfolio .portfolios .flexRow {
+  height: 30vh;
+}
+.mainContent .portfolio .portfolios .halfWidthImg {
+  width: 50%;
+}
+.mainContent .portfolio .portfolios .abonPharmaImg, .mainContent .portfolio .portfolios .shophieImg {
+  height: 40vh;
+}
 
 body {
   background-image: url("../assets/blackStripedBackgroun.png");
@@ -525,6 +596,11 @@ section {
           flex-direction: row;
 }
 
+.gridRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+}
+
 .hide {
   display: none;
 }
@@ -537,7 +613,9 @@ section {
 .buttons {
   margin: 50px 0;
 }
-.buttons a {
+.buttons a, .buttons button {
+  cursor: pointer;
+  border-style: none;
   color: #f12365;
   background: white;
   padding: 10px 25px;
@@ -550,7 +628,7 @@ section {
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
-.buttons a:hover, .buttons a:focus {
+.buttons a:hover, .buttons a:focus, .buttons button:hover, .buttons button:focus {
   color: white;
   background: #f12365;
 }
