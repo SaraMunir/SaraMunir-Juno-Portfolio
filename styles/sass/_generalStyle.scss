@@ -164,7 +164,7 @@
             .projectCntr{
                 position: relative;
                 .imgTop{
-                    background: #f12364a2;
+                    background-image: linear-gradient(45deg,#f12364da , #e483a2a9);
                     position: absolute;
                     top: 0;
                     bottom: 0;
@@ -172,6 +172,49 @@
                     left: 0;
                     opacity: 0;
                     transition: .5s;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    .content{
+                        padding: 40px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        height: 100%;
+                        text-align: center;
+                        img {
+                            width: 60px;
+                            height: 60px;
+                            margin: 10px auto;
+                            cursor: pointer;
+                            padding: 10px;
+                        }
+                        img:hover {
+                            background: rgba(255, 255, 255, 0.301);
+                        }
+                    }
+                    .btnCntr{
+                        width: 100%;
+                        button {
+                            width: 50%;
+                            border:none;
+                            padding: 20px;
+                            text-transform: uppercase;
+                            color: #f12365;
+                            cursor: pointer;
+                            transition: .4s;
+                        }
+                        button:focus, button:hover {
+                            background-color: #f12365;
+                            color: white
+                        }
+                    }
+
+                    h3{
+                        @include basicHeadingFont(1.7rem, #ffffff);
+
+                    }
                 }
             }
             .projectCntr:hover .imgTop {
@@ -191,7 +234,7 @@
             .projectImgStitches{
                 height: 30vh;
             }
-            .flexRow {
+            .upperImages {
                 height: 30vh;
             }
             .halfWidthImg{
@@ -203,4 +246,83 @@
 
         }
     }
-}
+    .portfolioDetail {
+        position: relative;
+        .detailWindow{
+            position: fixed;
+            top: 0;
+            z-index: 20;
+            background-image: url('../assets/blackStripedBackgroun.png');
+            .projectText{
+                padding: 30px;
+                width: 60%;
+                margin: 0 auto;
+                height: 100vh;
+                // overflow: auto;
+                // overflow-y: hidden;
+                overflow-y: hidden;
+
+                .flexRow {
+                    justify-content: end;
+                    img {
+                        width: 50px;
+                        text-align: right;
+                    }
+                }
+                .projectMain{
+                    min-height: 20vh;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    h3{
+                        @include basicHeadingFont(2.8rem, #f12365);
+                        span {
+                            color: white;
+                        }
+                    }
+                    border-bottom: 2px solid black;
+                }
+                .projectSubContent{
+                    h4 {
+                        @include basicHeadingFont(2rem, #f12365);
+                        span {
+                            color:white;
+                        }
+                    }
+                    p {
+                        color: white;
+                        font-size: .9rem;
+                        line-height: 30px;
+                    }
+                }
+                
+            }
+            .projectText:hover {
+                overflow-y: scroll;
+                scrollbar-color: #f123646e #00000036;
+                border-radius: 5px;
+                scrollbar-width: 5px;
+                scrollbar-gutter: blue;
+
+            }
+            .projectText::-webkit-scrollbar {
+                width: 10px;
+            }
+            
+            .projectText::-webkit-scrollbar-thumb:vertical {
+                height: 30px;
+                background-color: #f123646e;
+                border-radius: 5px;
+            }
+
+        }
+        aside{
+            width: 35%;
+            padding: 50px;
+            background: rgba(0, 0, 0, 0.432);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;}
+        }
+    }
+

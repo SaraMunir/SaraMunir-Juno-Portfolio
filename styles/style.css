@@ -521,7 +521,7 @@ html {
   position: relative;
 }
 .mainContent .portfolio .portfolios .projectCntr .imgTop {
-  background: #f12364a2;
+  background-image: linear-gradient(45deg, #f12364da, #e483a2a9);
   position: absolute;
   top: 0;
   bottom: 0;
@@ -530,6 +530,68 @@ html {
   opacity: 0;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.mainContent .portfolio .portfolios .projectCntr .imgTop .content {
+  padding: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  text-align: center;
+}
+.mainContent .portfolio .portfolios .projectCntr .imgTop .content img {
+  width: 60px;
+  height: 60px;
+  margin: 10px auto;
+  cursor: pointer;
+  padding: 10px;
+}
+.mainContent .portfolio .portfolios .projectCntr .imgTop .content img:hover {
+  background: rgba(255, 255, 255, 0.301);
+}
+.mainContent .portfolio .portfolios .projectCntr .imgTop .btnCntr {
+  width: 100%;
+}
+.mainContent .portfolio .portfolios .projectCntr .imgTop .btnCntr button {
+  width: 50%;
+  border: none;
+  padding: 20px;
+  text-transform: uppercase;
+  color: #f12365;
+  cursor: pointer;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.mainContent .portfolio .portfolios .projectCntr .imgTop .btnCntr button:focus, .mainContent .portfolio .portfolios .projectCntr .imgTop .btnCntr button:hover {
+  background-color: #f12365;
+  color: white;
+}
+.mainContent .portfolio .portfolios .projectCntr .imgTop h3 {
+  color: #ffffff;
+  font-family: "DM Serif Display", serif;
+  text-transform: capitalize;
+  font-size: 1.7rem;
+  margin: 10px 0;
 }
 .mainContent .portfolio .portfolios .projectCntr:hover .imgTop {
   opacity: 1;
@@ -550,7 +612,7 @@ html {
 .mainContent .portfolio .portfolios .projectImgStitches {
   height: 30vh;
 }
-.mainContent .portfolio .portfolios .flexRow {
+.mainContent .portfolio .portfolios .upperImages {
   height: 30vh;
 }
 .mainContent .portfolio .portfolios .halfWidthImg {
@@ -558,6 +620,100 @@ html {
 }
 .mainContent .portfolio .portfolios .abonPharmaImg, .mainContent .portfolio .portfolios .shophieImg {
   height: 40vh;
+}
+.mainContent .portfolioDetail {
+  position: relative;
+}
+.mainContent .portfolioDetail .detailWindow {
+  position: fixed;
+  top: 0;
+  z-index: 20;
+  background-image: url("../assets/blackStripedBackgroun.png");
+}
+.mainContent .portfolioDetail .detailWindow .projectText {
+  padding: 30px;
+  width: 60%;
+  margin: 0 auto;
+  height: 100vh;
+  overflow-y: hidden;
+}
+.mainContent .portfolioDetail .detailWindow .projectText .flexRow {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+.mainContent .portfolioDetail .detailWindow .projectText .flexRow img {
+  width: 50px;
+  text-align: right;
+}
+.mainContent .portfolioDetail .detailWindow .projectText .projectMain {
+  min-height: 20vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-bottom: 2px solid black;
+}
+.mainContent .portfolioDetail .detailWindow .projectText .projectMain h3 {
+  color: #f12365;
+  font-family: "DM Serif Display", serif;
+  text-transform: capitalize;
+  font-size: 2.8rem;
+  margin: 10px 0;
+}
+.mainContent .portfolioDetail .detailWindow .projectText .projectMain h3 span {
+  color: white;
+}
+.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent h4 {
+  color: #f12365;
+  font-family: "DM Serif Display", serif;
+  text-transform: capitalize;
+  font-size: 2rem;
+  margin: 10px 0;
+}
+.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent h4 span {
+  color: white;
+}
+.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent p {
+  color: white;
+  font-size: 0.9rem;
+  line-height: 30px;
+}
+.mainContent .portfolioDetail .detailWindow .projectText:hover {
+  overflow-y: scroll;
+  scrollbar-color: #f123646e #00000036;
+  border-radius: 5px;
+  scrollbar-width: 5px;
+  scrollbar-gutter: blue;
+}
+.mainContent .portfolioDetail .detailWindow .projectText::-webkit-scrollbar {
+  width: 10px;
+}
+.mainContent .portfolioDetail .detailWindow .projectText::-webkit-scrollbar-thumb:vertical {
+  height: 30px;
+  background-color: #f123646e;
+  border-radius: 5px;
+}
+.mainContent .portfolioDetail aside {
+  width: 35%;
+  padding: 50px;
+  background: rgba(0, 0, 0, 0.432);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 body {
@@ -637,3 +793,5 @@ section {
   width: 90%;
   margin: 0 auto;
 }
+
+/* width */
