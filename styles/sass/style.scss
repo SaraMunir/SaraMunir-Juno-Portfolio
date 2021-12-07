@@ -5,6 +5,7 @@
     font-size: $customFontSize;
     margin: 10px 0;
 }
+@import 'modal';
 
 @import 'normalize';
 @import 'sideBar';
@@ -12,6 +13,7 @@
 
 body {
     background-image: url('../assets/blackStripedBackgroun.png');
+    background-image: url('../assets/blackStripedBackgrounLighter.jpg');
     background-position: center;
     background-attachment: fixed;
     font-family: 'Poppins', sans-serif;
@@ -74,3 +76,6 @@ section {
     margin: 0 auto;
 }
 /* width */
+.cursorPntr{
+    cursor: pointer;
+}

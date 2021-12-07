@@ -1,0 +1,74 @@
+.modal {
+    background: #161616e0;
+    position: fixed;
+    margin: 0 auto;
+    z-index: 60;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    .modalCntr{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .imgFocused{
+        // width: 100%;
+        display: flex;
+        width: 80%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        color: #f12365;
+        .fixedImgwidth {
+            width: 60%;
+            margin: 0 auto;
+            img {
+                height: 70vh;
+                // margin: 0 auto;
+
+                object-fit: contain;
+            } 
+            
+        }
+        i {
+            width: 20%;
+            margin: 0 auto;
+            font-size: 3rem;
+            padding: 20px;
+            cursor: pointer;
+            text-align: center;
+        }
+    }
+    .allImages {
+        display: flex;
+        justify-content: center;
+        margin: 20px auto;
+        align-items: center;
+        img{
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .spcl {
+            border: 4px solid #f12365;
+            box-shadow: 0px 0px 20px #f12365;
+
+        }
+    }
+    .clostBtn{
+        width: 70%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: end;
+        i {
+            color: white;
+            font-size: 2rem;
+            margin: 20px;
+            cursor: pointer;
+        }
+    }
+}

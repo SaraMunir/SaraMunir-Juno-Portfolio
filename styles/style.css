@@ -1,3 +1,102 @@
+.modal {
+  background: #161616e0;
+  position: fixed;
+  margin: 0 auto;
+  z-index: 60;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.modal .modalCntr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.modal .imgFocused {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 auto;
+  color: #f12365;
+}
+.modal .imgFocused .fixedImgwidth {
+  width: 60%;
+  margin: 0 auto;
+}
+.modal .imgFocused .fixedImgwidth img {
+  height: 70vh;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.modal .imgFocused i {
+  width: 20%;
+  margin: 0 auto;
+  font-size: 3rem;
+  padding: 20px;
+  cursor: pointer;
+  text-align: center;
+}
+.modal .allImages {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 20px auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.modal .allImages img {
+  width: 150px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 10px;
+  cursor: pointer;
+}
+.modal .allImages .spcl {
+  border: 4px solid #f12365;
+  -webkit-box-shadow: 0px 0px 20px #f12365;
+          box-shadow: 0px 0px 20px #f12365;
+}
+.modal .clostBtn {
+  width: 70%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+.modal .clostBtn i {
+  color: white;
+  font-size: 2rem;
+  margin: 20px;
+  cursor: pointer;
+}
+
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -449,29 +548,31 @@ html {
   color: white;
 }
 .mainContent .about aside h4 {
-  color: white;
+  color: #8b8b8b;
   font-family: "DM Serif Display", serif;
   text-transform: capitalize;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   margin: 10px 0;
 }
 .mainContent .about aside h4 span {
-  color: white;
+  color: #8b8b8b;
 }
 .mainContent .about aside i {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: #f12365;
   margin: 5px;
+  margin-left: 0px;
 }
 .mainContent .about aside img {
-  width: 50px;
+  width: 40px;
   text-align: center;
   -ms-flex-item-align: center;
       align-self: center;
   margin: 5px;
+  margin-left: 0px;
 }
 .mainContent .about aside div {
-  margin-left: 20px;
+  margin-left: 10px;
 }
 .mainContent .about aside .iconsArr {
   padding: 20px;
@@ -623,16 +724,23 @@ html {
 }
 .mainContent .portfolioDetail {
   position: relative;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .mainContent .portfolioDetail .detailWindow {
   position: fixed;
   top: 0;
   z-index: 20;
-  background-image: url("../assets/blackStripedBackgroun.png");
+  background-image: url("../assets/blackStripedBackgrounLighter.jpg");
 }
 .mainContent .portfolioDetail .detailWindow .projectText {
   padding: 30px;
-  width: 60%;
+  width: 70%;
   margin: 0 auto;
   height: 100vh;
   overflow-y: hidden;
@@ -685,12 +793,21 @@ html {
   font-size: 0.9rem;
   line-height: 30px;
 }
+.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .imageArray img {
+  width: 100px;
+}
+.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .stackArray i {
+  font-size: 3rem;
+  color: #f12365;
+}
+.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .stackArray img {
+  width: 50px;
+}
 .mainContent .portfolioDetail .detailWindow .projectText:hover {
-  overflow-y: scroll;
+  overflow-y: auto;
   scrollbar-color: #f123646e #00000036;
   border-radius: 5px;
   scrollbar-width: 5px;
-  scrollbar-gutter: blue;
 }
 .mainContent .portfolioDetail .detailWindow .projectText::-webkit-scrollbar {
   width: 10px;
@@ -701,23 +818,59 @@ html {
   border-radius: 5px;
 }
 .mainContent .portfolioDetail aside {
-  width: 35%;
-  padding: 50px;
+  width: 30%;
+  margin: auto;
   background: rgba(0, 0, 0, 0.432);
+  height: 100vh;
+}
+.mainContent .portfolioDetail aside h4 {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  color: #f12365;
+  font-family: "DM Serif Display", serif;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+.mainContent .portfolioDetail aside .projectImgs2 {
+  display: grid;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+}
+.mainContent .portfolioDetail aside img {
+  width: 40%;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 20px;
+  cursor: pointer;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+  border: 3px solid #f12365;
+}
+.mainContent .portfolioDetail aside img:hover {
+  -webkit-filter: grayscale(0%);
+          filter: grayscale(0%);
+  -webkit-box-shadow: 0px 0px 20px #f12365;
+          box-shadow: 0px 0px 20px #f12365;
 }
 
 body {
   background-image: url("../assets/blackStripedBackgroun.png");
+  background-image: url("../assets/blackStripedBackgrounLighter.jpg");
   background-position: center;
   background-attachment: fixed;
   font-family: "Poppins", sans-serif;
@@ -795,3 +948,6 @@ section {
 }
 
 /* width */
+.cursorPntr {
+  cursor: pointer;
+}

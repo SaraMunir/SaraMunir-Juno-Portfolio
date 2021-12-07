@@ -22,6 +22,22 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
+    <div class="modal hide" id="modal">
+        <div class="modalCntr">
+            <div class="clostBtn" onclick="closeModal()">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="imgFocused" id="focusedImgs">
+                <i class="fas fa-chevron-left" onclick="prevImg()"></i>
+                <div  class='fixedImgwidth'>
+                    <img id="imgInFocus" src="" alt="image of the project">
+                </div>
+                <i class="fas fa-chevron-right" onclick="nextImg()"></i>
+            </div>
+            <div class="allImages">
+            </div>
+        </div>
+    </div>
     <div class="flexRow">
         <section class="sideBar sideWidthBig" id="sideBar"
         >
@@ -172,10 +188,10 @@
                 data-aos-delay="1000"
                 data-aos-once="true">
                     <h3><span>./</span> Skills</h3>
-                    <div>
+                    <div >
                         <h4><span>../</span> Languages</h4>
                         <div class="iconsArr" >
-                            <i class="fab fa-js"></i>
+                            <i class="fab fa-js" title="javascrip"></i>
                             <i class="fab fa-html5"></i>
                             <i class="fab fa-css3-alt"></i>
                             <i class="fab fa-sass"></i>
@@ -226,12 +242,12 @@
                         <div class="projectCntr projectImgStitches">
                             <div class="imgTop">
                                 <div class="content">
-                                    <img src="./assets/add.png" alt="add icon">
+                                    <img src="./assets/add.png" alt="add icon"  onclick="showDetail(3)">
                                     <h3>Ecommerce</h3>
                                 </div>
                                 <div class="btnCntr flexRow">
                                     <button>Live Site</button>
-                                    <button>load more</button>
+                                    <button  onclick="showDetail(3)">load more</button>
                                 </div>
                             </div>
                             <img class="imgSettings" src="./assets/eccomerseStitchesPreview.jpg" alt="ecommerce page">
@@ -297,12 +313,12 @@
                         <div class="projectCntr focusImg">
                             <div class="imgTop">
                                 <div class="content">
-                                    <img src="./assets/add.png" alt="add icon">
+                                    <img src="./assets/add.png" alt="add icon" onclick="showDetail(2)">
                                     <h3>social</h3>
                                 </div>
                                 <div class="btnCntr flexRow">
                                     <button>Live Site</button>
-                                    <button>load more</button>
+                                    <button onclick="showDetail(2)">load more</button>
                                 </div>
                             </div>
                             <img class="imgSettings" src="./assets/laptopWithThoughtEscape.jpg" alt="thouse escape page">
@@ -315,7 +331,7 @@
                 <div class="flexRow detailWindow">
                     <div class="projectText">
                         <div class="flexRow">
-                            <img src="./assets/return.png" alt="">
+                            <img class="cursorPntr" src="./assets/return.png" alt="return logo" onclick="goBackToPortfolio()">                        
                         </div>
                         <div class="projectMain">
                             <h3><span>./</span> portfolio <span>./ details</span></h3>
@@ -325,20 +341,19 @@
                             <p id="projectDescription">
                                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod earum sequi, tempore dignissimos explicabo ullam repellendus nulla quidem deserunt voluptates suscipit? Dignissimos officiis quisquam itaque facere illum praesentium, ipsam ratione.
                             </p>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima blanditiis rerum, neque esse dolor perspiciatis. Molestias, hic nobis modi sapiente quae esse, exercitationem eveniet harum voluptate corporis atque aut obcaecati.</p>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima blanditiis rerum, neque esse dolor perspiciatis. Molestias, hic nobis modi sapiente quae esse, exercitationem eveniet harum voluptate corporis atque aut obcaecati.</p>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima blanditiis rerum, neque esse dolor perspiciatis. Molestias, hic nobis modi sapiente quae esse, exercitationem eveniet harum voluptate corporis atque aut obcaecati.</p>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima blanditiis rerum, neque esse dolor perspiciatis. Molestias, hic nobis modi sapiente quae esse, exercitationem eveniet harum voluptate corporis atque aut obcaecati.</p>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima blanditiis rerum, neque esse dolor perspiciatis. Molestias, hic nobis modi sapiente quae esse, exercitationem eveniet harum voluptate corporis atque aut obcaecati.</p>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima blanditiis rerum, neque esse dolor perspiciatis. Molestias, hic nobis modi sapiente quae esse, exercitationem eveniet harum voluptate corporis atque aut obcaecati.</p>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima blanditiis rerum, neque esse dolor perspiciatis. Molestias, hic nobis modi sapiente quae esse, exercitationem eveniet harum voluptate corporis atque aut obcaecati.</p>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima blanditiis rerum, neque esse dolor perspiciatis. Molestias, hic nobis modi sapiente quae esse, exercitationem eveniet harum voluptate corporis atque aut obcaecati.</p>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima blanditiis rerum, neque esse dolor perspiciatis. Molestias, hic nobis modi sapiente quae esse, exercitationem eveniet harum voluptate corporis atque aut obcaecati.</p>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima blanditiis rerum, neque esse dolor perspiciatis. Molestias, hic nobis modi sapiente quae esse, exercitationem eveniet harum voluptate corporis atque aut obcaecati.</p>
-                            <p>where m i </p>
+                            <div class="imageArray">
+
+                            </div>
+                            <div class="stackArray">
+
+                            </div>
                         </div>
                     </div>
-                    <aside id="projectImgs">
+                    <aside>
+                        <h4>Click Images to view more</h4>
+                        <div id="projectImgs"  class="projectImgs2">
+
+                        </div>
                     </aside>
                 </div>
             </section>
