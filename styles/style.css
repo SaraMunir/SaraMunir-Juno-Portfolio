@@ -371,6 +371,17 @@ html {
 .sideBar div .sidebarFooter {
   height: 30vh;
   padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: center;
 }
 .sideBar div .sidebarFooter .socialLinks {
   display: -webkit-box;
@@ -391,6 +402,9 @@ html {
   transition: 0.3s;
 }
 .sideBar div .sidebarFooter .socialLinks a:hover, .sideBar div .sidebarFooter .socialLinks a:focus {
+  color: #f12365;
+}
+.sideBar div .sidebarFooter p {
   color: #f12365;
 }
 
@@ -466,11 +480,13 @@ html {
   line-height: 30px;
 }
 .mainContent .about .aboutText {
-  padding: 30px;
+  padding: 50px;
   width: 60%;
   margin: 0 auto;
 }
 .mainContent .about .aboutText .aboutMain {
+  width: 90%;
+  margin: 0 auto;
   min-height: 35vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -482,7 +498,6 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border-bottom: 2px solid black;
 }
 .mainContent .about .aboutText .aboutMain h2 {
   color: #f12365;
@@ -493,6 +508,10 @@ html {
 }
 .mainContent .about .aboutText .aboutMain h2 span {
   color: white;
+}
+.mainContent .about .aboutText .aboutMain p {
+  font-size: 1.2rem;
+  line-height: 40px;
 }
 .mainContent .about .aboutText .aboutSubContent {
   padding: 30px 0;
@@ -619,16 +638,67 @@ html {
           justify-content: flex-start;
 }
 .mainContent .portfolio .portfolios .projectCntr {
+  cursor: default;
   position: relative;
 }
+.mainContent .portfolio .portfolios .projectCntr .mainStack {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  z-index: 10;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.mainContent .portfolio .portfolios .projectCntr .mainStack .flexRow {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.mainContent .portfolio .portfolios .projectCntr .mainStack .square {
+  background: #f12365;
+  padding: 20px 10px;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.mainContent .portfolio .portfolios .projectCntr .mainStack .triangleLeft {
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 25px solid #f12365;
+  margin-top: -20px;
+}
+.mainContent .portfolio .portfolios .projectCntr .mainStack .triangleRight {
+  margin-top: -20px;
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right: 25px solid #f12365;
+}
+.mainContent .portfolio .portfolios .projectCntr .mainStack i {
+  font-size: 2rem;
+  color: white;
+}
 .mainContent .portfolio .portfolios .projectCntr .imgTop {
-  background-image: linear-gradient(45deg, #f12364da, #e483a2a9);
+  background-image: linear-gradient(45deg, #992a4dda, #e483a2a9);
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  opacity: 0;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   display: -webkit-box;
@@ -646,7 +716,6 @@ html {
           align-items: center;
 }
 .mainContent .portfolio .portfolios .projectCntr .imgTop .content {
-  padding: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -677,6 +746,7 @@ html {
   width: 50%;
   border: none;
   padding: 20px;
+  margin: 0 auto;
   text-transform: uppercase;
   color: #f12365;
   cursor: pointer;
@@ -694,8 +764,15 @@ html {
   font-size: 1.7rem;
   margin: 10px 0;
 }
-.mainContent .portfolio .portfolios .projectCntr:hover .imgTop {
+.mainContent .portfolio .portfolios .projectCntr .opacity {
+  opacity: 0;
+}
+.mainContent .portfolio .portfolios .projectCntr:hover .opacity, .mainContent .portfolio .portfolios .projectCntr:focus .opacity {
   opacity: 1;
+}
+.mainContent .portfolio .portfolios .projectCntr:hover .mainStack {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 .mainContent .portfolio .portfolios .imgSettings {
   height: 100%;
@@ -703,7 +780,7 @@ html {
      object-fit: cover;
 }
 .mainContent .portfolio .portfolios .projectImgsSun {
-  height: 50vh;
+  height: 45vh;
 }
 .mainContent .portfolio .portfolios .focusImg {
   height: 50vh;
@@ -711,7 +788,7 @@ html {
      object-fit: cover;
 }
 .mainContent .portfolio .portfolios .projectImgStitches {
-  height: 30vh;
+  height: 35vh;
 }
 .mainContent .portfolio .portfolios .upperImages {
   height: 30vh;
@@ -719,8 +796,14 @@ html {
 .mainContent .portfolio .portfolios .halfWidthImg {
   width: 50%;
 }
-.mainContent .portfolio .portfolios .abonPharmaImg, .mainContent .portfolio .portfolios .shophieImg {
+.mainContent .portfolio .portfolios .shophieImg {
   height: 40vh;
+}
+.mainContent .portfolio .portfolios .movieManixImg {
+  height: 55vh;
+}
+.mainContent .portfolio .portfolios .gameOfThrns {
+  height: 25vh;
 }
 .mainContent .portfolioDetail {
   position: relative;
@@ -746,16 +829,16 @@ html {
   overflow-y: hidden;
 }
 .mainContent .portfolioDetail .detailWindow .projectText .flexRow {
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
 }
 .mainContent .portfolioDetail .detailWindow .projectText .flexRow img {
-  width: 50px;
+  width: 40px;
   text-align: right;
 }
 .mainContent .portfolioDetail .detailWindow .projectText .projectMain {
-  min-height: 20vh;
+  min-height: 10vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -778,30 +861,135 @@ html {
 .mainContent .portfolioDetail .detailWindow .projectText .projectMain h3 span {
   color: white;
 }
-.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent h4 {
+.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent {
+  padding-top: 40px;
+}
+.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .projectLink {
   color: #f12365;
   font-family: "DM Serif Display", serif;
   text-transform: capitalize;
-  font-size: 2rem;
+  font-size: 2.6rem;
   margin: 10px 0;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
-.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent h4 span {
+.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .projectLink:hover {
   color: white;
 }
 .mainContent .portfolioDetail .detailWindow .projectText .projectSubContent p {
   color: white;
-  font-size: 0.9rem;
-  line-height: 30px;
+  font-size: 1.2rem;
+  line-height: 50px;
 }
 .mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .imageArray img {
   width: 100px;
 }
-.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .stackArray i {
-  font-size: 3rem;
-  color: #f12365;
+.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .flexRow {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
-.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .stackArray img {
-  width: 50px;
+.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .flexRow .linksAndStacks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .flexRow .linksAndStacks h5 {
+  color: white;
+  font-family: "DM Serif Display", serif;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .flexRow .linksAndStacks .stackArray {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .flexRow .linksAndStacks .stackArray i {
+  font-size: 1.7rem;
+  color: #f12365;
+  margin: 10px 10px;
+}
+.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .flexRow .linksAndStacks .stackArray img {
+  width: 30px;
+  margin: 10px 10px;
+}
+.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .flexRow .projectCollabImg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .flexRow .projectCollabImg p {
+  margin: 0;
+}
+.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .flexRow .projectCollabImg img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  margin: 10px;
+}
+.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .flexRow .projectCollabImg .collabCntr {
+  display: block;
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .flexRow .projectCollabImg .collabCntr .collabWindwo {
+  min-width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  position: absolute;
+  right: 70px;
+  top: 0;
+  border: 1px solid #f12365;
+  color: #ffffff;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background: #f12365;
+}
+.mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .flexRow .projectCollabImg .collabCntr:hover .collabWindwo, .mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .flexRow .projectCollabImg .collabCntr:focus .collabWindwo {
+  opacity: 1;
 }
 .mainContent .portfolioDetail .detailWindow .projectText:hover {
   overflow-y: auto;
@@ -851,11 +1039,11 @@ html {
       align-content: flex-start;
 }
 .mainContent .portfolioDetail aside img {
-  width: 40%;
+  width: 35%;
   height: 150px;
   -o-object-fit: cover;
      object-fit: cover;
-  margin: 20px;
+  margin: 20px auto;
   cursor: pointer;
   -webkit-filter: grayscale(100%);
           filter: grayscale(100%);
@@ -907,7 +1095,7 @@ section {
 
 .gridRow {
   display: grid;
-  grid-template-columns: 1fr 1fr 2fr;
+  grid-template-columns: 1fr 2fr 1fr;
 }
 
 .hide {
@@ -940,6 +1128,31 @@ section {
 .buttons a:hover, .buttons a:focus, .buttons button:hover, .buttons button:focus {
   color: white;
   background: #f12365;
+}
+
+.buttons2 {
+  margin: 20px 0;
+}
+.buttons2 a, .buttons2 button {
+  cursor: pointer;
+  border-style: none;
+  color: white;
+  background: transparent;
+  border: 2px solid #ffffff;
+  padding: 10px 25px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  margin-right: 20px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.buttons2 a:hover, .buttons2 a:focus, .buttons2 button:hover, .buttons2 button:focus {
+  color: black;
+  background: #f12365;
+  border: 2px solid #f12365;
 }
 
 .wrapper {

@@ -39,8 +39,7 @@
         </div>
     </div>
     <div class="flexRow">
-        <section class="sideBar sideWidthBig" id="sideBar"
-        >
+        <section class="sideBar sideWidthBig" id="sideBar">
             <div>
                 <div class="profileImg"
                 data-aos="fade-right"
@@ -57,12 +56,13 @@
                 data-aos-once="true"
                 data-aos-duration="2000"
                 data-aos-delay="1500">
-                        <ul class="socialLinks">
-                            <li><a href="https://www.instagram.com/sarathewebdev/"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="https://twitter.com/saraMnrdev"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="https://www.linkedin.com/in/sara-munir"><i class="fab fa-linkedin"></i></a></li>
-                            <li><a href="https://github.com/SaraMunir"><i class="fab fa-github"></i></a></li>
-                        </ul>
+                    <ul class="socialLinks">
+                        <li><a href="https://www.instagram.com/sarathewebdev/"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="https://twitter.com/saraMnrdev"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/sara-munir"><i class="fab fa-linkedin"></i></a></li>
+                        <li><a href="https://github.com/SaraMunir"><i class="fab fa-github"></i></a></li>
+                    </ul>
+                    <p>created @ Juno College, 2021</p>
                 </div>
             </div>
         </section>
@@ -119,7 +119,7 @@
                             <a href="./assets/resumeSaraMunir2nd.pdf" download="">Download CV</a>
                         </div>
                     </div>
-                    <div class="aboutSubContent"
+                    <!-- <div class="aboutSubContent"
                     data-aos="fade-up"
                     data-aos-easing="linear"
                     data-aos-duration="1000"
@@ -179,7 +179,7 @@
                                 </p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <aside
                 data-aos="fade-up"
@@ -224,135 +224,157 @@
                 <div class="portfolioTxt">
                     <h2><span>./</span>portfolio</h2>
                 </div>
-                <div class="portfolios gridRow">
+                <div class="portfolios gridRow" id="projectsAll">
                     <div class="col1">
-                        <div class="projectCntr projectImgsSun">
-                            <div class="imgTop">
+                        <a onfocus="showTop('sunRun')" href="#SunRun" class="projectCntr projectImgsSun">
+                            <div class="mainStack">
+                                <div class="square">
+                                    <i class="fab fa-react"></i>
+                                    <!-- <p>React</p> -->
+                                </div>
+                                <div class="flexRow">
+                                    <div class="triangleLeft">
+                                    </div>
+                                    <div class="triangleRight">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div  id="sunRun" class="imgTop opacity">            
                                 <div class="content">
                                     <img src="./assets/add.png" alt="add icon" onclick="showDetail(0)">
                                     <h3>Fitness</h3>
                                 </div>
                                 <div class="btnCntr flexRow">
                                     <button>Live Site</button>
-                                    <button onclick="showDetail(0)">load more</button>
+                                    <button onfocusout="hideTop('sunRun')" onclick="showDetail(0)">load more</button>
                                 </div>
                             </div>
                             <img class="imgSettings" src="./assets/sunRunPreview.jpg" alt="thouse escape page">
-                        </div>
-                        <div class="projectCntr projectImgStitches">
-                            <div class="imgTop">
+                        </a>
+                        <a onfocus="showTop('stitches')" href="#stitches" class="projectCntr projectImgStitches">
+                            <div class="mainStack">
+                                <div class="square">
+                                    <i class="fab fa-node"></i>
+                                    <!-- <p>React</p> -->
+                                </div>
+                                <div class="flexRow">
+                                    <div class="triangleLeft">
+                                    </div>
+                                    <div class="triangleRight">
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="stitches" class="imgTop opacity">
                                 <div class="content">
                                     <img src="./assets/add.png" alt="add icon"  onclick="showDetail(3)">
                                     <h3>Ecommerce</h3>
                                 </div>
                                 <div class="btnCntr flexRow">
                                     <button>Live Site</button>
-                                    <button  onclick="showDetail(3)">load more</button>
+                                    <button onfocusout="hideTop('stitches')"  onclick="showDetail(3)">load more</button>
                                 </div>
                             </div>
                             <img class="imgSettings" src="./assets/eccomerseStitchesPreview.jpg" alt="ecommerce page">
-                        </div>
+                        </a>
                     </div>
                     <div class="col1">
-                        <div class="projectCntr shophieImg">
-                            <div class="imgTop">
+                        <a onfocus="showTop('sophie')" href="#sophie"  class="projectCntr upperImages">
+                            <div id="sophie" class="imgTop opacity">
                                 <div class="content">
                                     <img src="./assets/add.png" alt="add icon" onclick="showDetail(1)">
                                     <h3>Life Style</h3>
                                 </div>
                                 <div class="btnCntr flexRow">
                                     <button>Live Site</button>
-                                    <button onclick="showDetail(1)">load more</button>
+                                    <button onfocusout="hideTop('sophie')" onclick="showDetail(1)">load more</button>
                                 </div>
                             </div>
                             <img class="imgSettings" src="./assets/sophieBlogPreview.jpg" alt="sophies blog page">
-                        </div>
-                        <div class="projectCntr abonPharmaImg">
-                            <div class="imgTop">
-                                <div class="content">
-                                    <img src="./assets/add.png" alt="add icon">
-                                    <h3>Business</h3>
-                                </div>
-                                <div class="btnCntr flexRow">
-                                    <button>Live Site</button>
-                                    <button>load more</button>
-                                </div>
-                            </div>
-                            <img class="imgSettings" src="./assets/abonPharmaPreviewDarker.jpg" alt="desktop with apon pharma website page">
-                        </div>
-                    </div>
-                    <div class="col1">
-                        <div class="flexRow upperImages">
-                            <div class="projectCntr halfWidthImg">
-                                <div class="imgTop">
-                                    <div class="content">
-                                        <img src="./assets/add.png" alt="add icon">
-                                        <h3>Entertainment</h3>
-                                    </div>
-                                    <div class="btnCntr flexRow">
-                                        <button>Live Site</button>
-                                        <button>load more</button>
-                                    </div>
-                                </div>
-                                <img class="imgSettings movieManix" src="./assets/movieManiaxPreview.jpg" alt="thouse escape page">
-                            </div>
-                            <div class="projectCntr halfWidthImg">
-                                <div class="imgTop">
-                                    <div class="content">
-                                        <img src="./assets/add.png" alt="add icon">
-                                        <h3>Fun & Games</h3>
-                                    </div>
-                                    <div class="btnCntr flexRow">
-                                        <button>Live Site</button>
-                                        <button>load more</button>
-                                    </div>
-                                </div>
-                                <img  class="imgSettings" src="./assets/gameOfThronesQuizGameLandingPage.png" alt="thouse escape page">
-                            </div>
-                        </div>
-                        <div class="projectCntr focusImg">
-                            <div class="imgTop">
+                        </a>
+                        <a  onfocus="showTop('thoughtEscape')" href="#thoughtEscape" class="projectCntr focusImg">
+                            <div id="thoughtEscape" class="imgTop opacity">
                                 <div class="content">
                                     <img src="./assets/add.png" alt="add icon" onclick="showDetail(2)">
                                     <h3>social</h3>
                                 </div>
                                 <div class="btnCntr flexRow">
                                     <button>Live Site</button>
-                                    <button onclick="showDetail(2)">load more</button>
+                                    <button onfocusout="hideTop('thoughtEscape')" onclick="showDetail(2)">load more</button>
                                 </div>
                             </div>
                             <img class="imgSettings" src="./assets/laptopWithThoughtEscape.jpg" alt="thouse escape page">
-                        </div>
+                        </a>
                     </div>
-                    
+                    <div class="col1">
+                        <a onfocus="showTop('movieManix')" href="#movieManix" class="projectCntr movieManixImg">
+                            <div id="movieManix" class="imgTop opacity">
+                                <div class="content">
+                                    <img src="./assets/add.png" alt="add icon" onclick="showDetail(4)">
+                                    <h3>Entertainment</h3>
+                                </div>
+                                <div class="btnCntr flexRow">
+                                    <button>Live Site</button>
+                                    <button onfocusout="hideTop('thoughtEscape')" onclick="showDetail(4)">load more</button>
+                                </div>
+                            </div>
+                            <img class="imgSettings movieManix" src="./assets/movieManiaxPreview.jpg" alt="thouse escape page">
+                        </a>
+                        <a onfocus="showTop('gameOfThrones')" href="#gameOfThones"  class="projectCntr gameOfThrns">
+                            <div id="gameOfThrones" class="imgTop opacity">
+                                <div class="content">
+                                    <img src="./assets/add.png" alt="add icon" onclick="showDetail(5)">
+                                    <h3>Fun & Games</h3>
+                                </div>
+                                <div class="btnCntr flexRow">
+                                    <button>Live Site</button>
+                                    <button  onfocusout="hideTop('gameOfThrones')"  onclick="showDetail(5)">load more</button>
+                                </div>
+                            </div>
+                            <img  class="imgSettings" src="./assets/gameOfThronesQuizGameLandingPage.png" alt="thouse escape page">
+                        </a>
+                    </div>
                 </div>
             </section>
             <section class="portfolioDetail hide" id="portfolioDetail">
                 <div class="flexRow detailWindow">
                     <div class="projectText">
-                        <div class="flexRow">
-                            <img class="cursorPntr" src="./assets/return.png" alt="return logo" onclick="goBackToPortfolio()">                        
-                        </div>
-                        <div class="projectMain">
-                            <h3><span>./</span> portfolio <span>./ details</span></h3>
-                        </div>
-                        <div class="projectSubContent" id="projectContent">
-                            <h4 id="projectName">Project Name</h4>
-                            <p id="projectDescription">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod earum sequi, tempore dignissimos explicabo ullam repellendus nulla quidem deserunt voluptates suscipit? Dignissimos officiis quisquam itaque facere illum praesentium, ipsam ratione.
-                            </p>
-                            <div class="imageArray">
-
+                        <div style="width: 80%; margin: 0 auto;">
+                            <div class="flexRow">
+                                <img class="cursorPntr" src="./assets/return.png" alt="return logo" onclick="goBackToPortfolio()">                        
                             </div>
-                            <div class="stackArray">
-
+                            <div class="projectMain">
+                                <h3><span>./</span> portfolio <span>./ details</span></h3>
                             </div>
+                            <div class="projectSubContent" id="projectContent">
+                                <a class="projectLink" id="projectName">Project Name</a>
+                                <p id="projectDescription">
+                                </p>
+                                <div class="flexRow">
+                                    <div class="linksAndStacks">
+                                        <div class="buttons2">
+                                            <button>Live <i class="fas fa-wifi"></i></button>
+                                            <button>Git <i class="fab fa-github"></i></button>
+                                        </div>
+                                        <div>
+                                            <h5>Stacks</h5>
+                                            <div class="stackArray"></div>
+                                        </div>
+                                    </div>
+                                    <div class="projectCollabImg" id="projectCollabs"> 
+                                        <button class="collabCntr" href='#'>
+                                            <img src='https://placekitten.com/g/200/300' alt='something'>
+                                            <a class="collabWindwo" href='#'>sara</a>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                     <aside>
-                        <h4>Click Images to view more</h4>
+                        <h4>Preview Screen Shots</h4>
                         <div id="projectImgs"  class="projectImgs2">
-
                         </div>
                     </aside>
                 </div>

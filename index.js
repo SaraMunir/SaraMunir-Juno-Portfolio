@@ -1,7 +1,6 @@
 window.onscroll = function() {scrollingEffect()};
 
 const scrollingEffect=()=> {
-        console.log(document.body.scrollTop)
     if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
         $('#sideBar').addClass( "sideWidthSmll" )
         $('#sideBar').removeClass( "sideWidthBig" )
@@ -79,6 +78,14 @@ const nextImg =(idx, imgIdx)=>{
         return
     }
 }
+function showTop(cat){
+    console.log(cat)
+    $(`#${cat}`).removeClass( "opacity" )
+}
+function hideTop(cat){
+    console.log(cat)
+    $(`#${cat}`).addClass( "opacity" )
+}
 const prevImg =(idx, imgIdx)=>{
     if(imgIdx > 0){
         renderModalImg(idx , (Number(imgIdx)-1) )
@@ -92,14 +99,20 @@ const prevImg =(idx, imgIdx)=>{
 const closeModal = ()=>{
     $('#modal').hide( "slow" )
 }
-const showDetail=(id)=>{
+const showDetail=async(id)=>{
     console.log('show detail')
     $('#portfolio').hide( "slow" )
     $('#portfolioDetail').show( "slow" )
     console.log(projects[id].name)
+    $('#projectName').html('')
+    // $('#projectName').html(`
+    //     <a class="projectLink" id="projectName" href="${projects[id].website}">${projects[id].name}</a>
+    // `)
+    $('#projectName').attr("href", `${projects[id].website}`)
     $('#projectName').text(projects[id].name)
     $('#projectDescription').text(projects[id].description)
     $('#projectImgs').html('')
+    $('#projectCollabs').html('')
     // $('.imageArray').html('')
     $('.stackArray').html('')
     projects[id].images.forEach((image, idx)=>{
@@ -151,6 +164,26 @@ const showDetail=(id)=>{
             `)
         }
     })
+    if(projects[id].collaborators.length>0){
+        $('#projectCollabs').append('<p>Collaborators</p>')
+        
+        projects[id].collaborators.forEach(async collaborator=>{
+            // console.log(collaborator)
+            // console.log(collaborator.website)
+            await fetch(`https://api.github.com/users/${collaborator.github}`)
+                .then(res => res.json())
+                .then(data => {
+                console.log(data)
+                $('#projectCollabs').append(
+                `
+                    <button class="collabCntr" href="${collaborator.website}">
+                        <img title='${data.name}' src='${data.avatar_url}' alt='image of ${data.name}'>
+                        <a class="collabWindwo" href="${collaborator.website}">${data.name}</a>
+                    </button>
+                `)
+                })
+        })
+    }
 }
 const goBackToPortfolio=()=>{
     $('#portfolio').show( "slow" )
@@ -177,22 +210,21 @@ const projects=[
             {
                 name: 'Adrienne Lee',
                 github: 'adrienneklee',
-                website: 'https://adriennelee.dev/'
+                website: 'https://adriennelee.dev/',
+                linkedIn: 'https://www.linkedin.com/in/adrienneklee/'
+                
             }, 
             {
                 name:'Dallan Jones',
                 github:'dallanj',
-                website: 'https://dallan.ca/'
+                website: 'https://dallan.ca/',
+                linkedIn: 'https://www.linkedin.com/in/dallanj/'
             }, 
             {
                 name:'Kelvin Lee',
                 github:'kleemeo',
-                website: 'https://www.kelvinlee.dev/'
-            },
-            {
-                name: 'Sara Munir',
-                github:'SaraMunir',
-                website: 'https://saramunir.com/'
+                website: 'https://www.kelvinlee.dev/',
+                linkedIn: 'https://www.linkedin.com/in/kleeio/'
             }
         ],
         createdOn: '',
@@ -214,20 +246,16 @@ const projects=[
             "Bring the designer’s vision to life with a fully-functional website using HTML and CSS techniques",
             "Provide a good experience for the site's users across multiple devices and screen sizes"
         ],
-        collaborators: [
-            {
-                name: 'Sara Munir',
-                github:'SaraMunir',
-                website: 'https://saramunir.com/'
-            }
-        ],
+        collaborators: [],
         createdOn: '',
         website: 'https://saramunir.github.io/saraMunirJunoProjectOne/',
         github: "https://github.com/SaraMunir/saraMunirJunoProjectOne",
         images: [
             './assets/sophiesBlogImg1.png',
             './assets/sophiesBlogImg2.png',
-            './assets/sophiesBlogImg3.png'
+            './assets/sophiesBlogImg3.png',
+            './assets/sophiesBlogImg4.png',
+            './assets/sophiesBlogImg5.png',
         ],
         stacks: ['css', 'html', 'sass']
     },
@@ -241,13 +269,7 @@ const projects=[
             "App is dynamic based on user interaction (e.g. drop down menu, search field)", 
             "App and interactions are accessible"
         ],
-        collaborators: [
-            {
-                name: 'Sara Munir',
-                github:'SaraMunir',
-                website: 'https://saramunir.com/'
-            }
-        ],
+        collaborators: [],
         createdOn: '',
         website: 'https://thought-scape.herokuapp.com/',
         github: "https://github.com/SaraMunir/sara-munir-juno-project3",
@@ -264,13 +286,7 @@ const projects=[
         description: "An eccomerce website that allows users to shop clotthing of their choices. / users can select clothing and add to cart. They can only select upto 5 of each size as maximum number. The quantity is based on stock available. if there are any clothing with zero amount, users are not able to select. / Users cart are saved in local storage when they come back. Once they select, they are then prompted to provide payment and shipping information. Upon completion they are provided with the order confirmation",
         goal: 'To showcase the usage of local storage, backend integration with MongoDb along with successfully incorporating react components such as react routing, useState and useEffect',
         requirements: [],
-        collaborators: [
-            {
-                name: 'Sara Munir',
-                github:'SaraMunir',
-                website: 'https://saramunir.com/'
-            }
-        ],
+        collaborators: [],
         createdOn: '',
         website: 'https://my-ecommerce-web.herokuapp.com/',
         github: "https://github.com/SaraMunir/myEcommerce",
@@ -283,6 +299,63 @@ const projects=[
             './assets/eccomerseStitchesImgs6.png',
         ],
         stacks: ['REACT', 'css', 'html', 'javascript', 'mongodb', 'nodejs', ]
+    },
+    {
+        id: 4,
+        name: 'Movie Maniax',
+        description: "Movie Maniax is a user-friendly movie search application built on MERN stack. Users are offered a range of search options such as Popular, Top-Rated, Upcoming, and Genre. Once a member of Movie Maniax, users unlock a variety of rich features such as add to watchlist/favourites, build custom tags to make accessibility of movies easier, and read/write reviews/comments. Furthermore, to include a socializing aspect to our application, we allow users to make new friends with other Movie Maniax members. Once the user has made a Movie Maniax buddy, they can check out their friends and follower profile pages and get a glimpse of their favourite movies, watch lists, and reviews.",
+        goal: '',
+        requirements: [],
+        collaborators: [
+            {
+                name: 'Joanna Santhosh',
+                github:'jsanthos01',
+                website: 'https://www.linkedin.com/in/joannasanthosh/',
+                linkedIn: 'https://www.linkedin.com/in/joannasanthosh/'
+            }, 
+            {
+                name: 'Norma Moras',
+                github:'nmoras',
+                website: 'https://nmoras.github.io/front-end-projects.html',
+                linkedIn: 'https://www.linkedin.com/in/normamoras/'
+            }
+        ],
+        createdOn: '',
+        website: 'https://movie-maniax.herokuapp.com/',
+        github: "https://github.com/jsanthos01/MovieManiax",
+        images: [
+            './assets/movieManiaxImg1.png',
+            './assets/movieManiaxImg2.png',
+            './assets/movieManiaxImg3.png',
+            './assets/movieManiaxImg4.png',
+            './assets/movieManiaxImg5.png',
+        ],
+        stacks: ['REACT', 'css', 'html', 'javascript', 'mongodb', 'nodejs' ]
+    },
+    {
+        id: 5,
+        name: 'Game Of Thrones Quote Trivia',
+        description: "This is a quiz app that users can take part in. User is give a random quote from API of the famous Game of Thrones tv show and they have to guess which character quoted this. / Each answers are recorded when selected and are given if it is correct or not. at the end of the quize users are give the total score",
+        goal: '',
+        requirements: [],
+        collaborators: [
+            {
+                name: 'Sean Sipus',
+                github:'SeanSip',
+                website: 'https://seansipus.com/',
+                linkedIn: 'https://www.linkedin.com/in/sean-sipus/'
+            }
+        ],
+        createdOn: '',
+        website: 'https://house-juno.github.io/SaraSeanProject2/',
+        github: "https://github.com/House-Juno/SaraSeanProject2",
+        images: [
+            './assets/gameOfThronesQuizImg1.png',
+            './assets/gameOfThronesQuizImg2.png',
+            './assets/gameOfThronesQuizImg3.png',
+            './assets/gameOfThronesQuizImg4.png',
+        ],
+        stacks: ['javascript', 'sass','css', 'html']
     }
 ]
 $(document).ready(function(e){

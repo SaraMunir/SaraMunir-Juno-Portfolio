@@ -21,6 +21,10 @@
         .sidebarFooter{
             height: 30vh;
             padding: 20px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
             .socialLinks{
                 display: flex;
                 flex-direction: row;
@@ -33,6 +37,9 @@
                 a:hover, a:focus {
                     color: #f12365;
                 }
+            }
+            p{
+                color: #f12365;
             }
         }
     }
