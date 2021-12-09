@@ -4,35 +4,59 @@ const scrollingEffect=()=> {
     if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
         $('#sideBar').addClass( "sideWidthSmll" )
         $('#sideBar').removeClass( "sideWidthBig" )
+        // $('#profImgCntr').removeClass( "biggerHeight" )
+        // $('#profImgCntr').addClass( "smallerHeight" )
+        $('#profImgCntr').animate({
+            height: "40vh"
+        }, 1000);
+
+        $('.sidebarFooter').animate({
+            minHeight: "60vh"
+        }, 1000);
         
+        $('.menuCntr').animate({
+            minHeight: "40vh"
+        }, 1000);
+        setInterval(() => {
+            $(".menus").fadeIn(1000)
+            
+        }, 1000);
     } else {
-        $('#sideBar').addClass( "sideWidthBig" )
-        $('#sideBar').removeClass( "sideWidthSmll" )
     }
     if (document.body.scrollTop > 1800 || document.documentElement.scrollTop > 1800) {
         $('#profileImgC').attr("src", "./assets/myImg4.png");
-        // $('#sideBar').removeClass( "sideWidthBig" )
+        // $('#profileImgC').css("height", "50vh");
     }else {
         $('#profileImgC').attr("src", "./assets/myImg1.png");
-
     }
 }
 var textWrapper = document.querySelector('.ml3');
 textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
-
-function myScroll(type){
-    if(type === 'aboutSumm'){
-        $('html, body').animate({
-            scrollTop: $("#aboutSumm").offset().top
-        }, 1000);
-    }
-}
 const showContent=(type)=>{
     if(type=== 'aboutMe'){
         $('html, body').animate({
             scrollTop: $("#about").offset().top
         }, 1000);
+        $('#aboutNavItm').addClass("active")
+        $('#aboutPortItm').removeClass("active")
+        $('#contactsItm').removeClass("active")
+    }
+    if(type=== 'portfolios'){
+        $('html, body').animate({
+            scrollTop: $("#portfolio").offset().top
+        }, 1000);
+        $('#aboutNavItm').removeClass("active")
+        $('#aboutPortItm').addClass("active")
+        $('#contactsItm').removeClass("active")
+    }
+    if(type=== 'contacts'){
+        $('html, body').animate({
+            scrollTop: $("#contactSect").offset().top
+        }, 1000);
+        $('#aboutNavItm').removeClass("active")
+        $('#aboutPortItm').removeClass("active")
+        $('#contactsItm').addClass("active")
     }
 }
 const openModal = (idx, imgIdx)=>{
@@ -40,8 +64,6 @@ const openModal = (idx, imgIdx)=>{
     renderModalImg(idx, imgIdx)
 }
 const focusThisImg = (idx, imgIdx)=>{
-    // $('#modal').show( "slow" )
-    console.log('is it working?')
     renderModalImg(idx, imgIdx)
 }
 
@@ -68,12 +90,9 @@ const renderModalImg =(idx, imgIdx)=>{
     })
 }
 const nextImg =(idx, imgIdx)=>{
-    console.log(imgIdx)
-    console.log(projects[idx].images.length)
     if(imgIdx < projects[idx].images.length-1){
         renderModalImg(idx , (Number(imgIdx)+1) )
     }else {
-        console.log('no more image availalbe')
         renderModalImg(idx , 0 )
         return
     }
@@ -104,21 +123,31 @@ const showDetail=async(id)=>{
     $('#portfolio').hide( "slow" )
     $('#portfolioDetail').show( "slow" )
     console.log(projects[id].name)
-    $('#projectName').html('')
+    $('#projectName').text('')
     // $('#projectName').html(`
     //     <a class="projectLink" id="projectName" href="${projects[id].website}">${projects[id].name}</a>
     // `)
     $('#projectName').attr("href", `${projects[id].website}`)
     $('#projectName').text(projects[id].name)
-    $('#projectDescription').text(projects[id].description)
+    const projectParagraphs = projects[id].description.split(' / ')
+    console.log(projectParagraphs)
+    $('#projectDescription').html('')
+    projectParagraphs.forEach(para=>{
+        $('#projectDescription').append(`
+        <p>${para}</p>
+        `)
+    })
+
     $('#projectImgs').html('')
     $('#projectCollabs').html('')
     // $('.imageArray').html('')
     $('.stackArray').html('')
-    projects[id].images.forEach((image, idx)=>{
+    projects[id].images.slice(0, 3).forEach((image, idx)=>{
         console.log(image)
         $('#projectImgs').append(`
-        <img onclick="openModal('${id}','${idx}')" src='${image}' alt='image of ${projects[id].name}'>
+        <a href="#" onclick="openModal('${id}','${idx}')">
+        <img src='${image}' alt='image of ${projects[id].name}'>
+        </a>
         `)
     })
     // ['REACT', 'firebase', 'css', 'html', 'javascript']
@@ -186,21 +215,24 @@ const showDetail=async(id)=>{
     }
 }
 const goBackToPortfolio=()=>{
-    $('#portfolio').show( "slow" )
     $('#portfolioDetail').hide( "slow" )
-    $('#projectName').text('')
-    $('#projectDescription').text('')
-    $('#projectImgs').html('')
-    // $('.imageArray').html('')
-    $('.stackArray').html('')
+    $('#portfolio').show( "slow" )
+    setTimeout(() => {
+        
+        $('#projectName').text('')
+        $('#projectDescription').html('')
+        $('#projectImgs').html('')
+        $('#projectCollabs').html('')
+        // $('.imageArray').html('')
+        $('.stackArray').html('')
+    }, timeout);
 
 }
 const projects=[
     {
         id: 0,
         name: 'Sun Run',
-        description: 'Sun Run is a fitness app that allows users to schedule their runs based on sunlight. User can select if they want to hit sunrise or sunset and plan their runs accordingly. Based on the users selection the app suggests when they should start their run to hit sunrise or sunset.',
-        goal: 'This agency-style application was built on REACT,in a group project assigned by Juno College as part of their curriculum.  / The main goal of the project was to mimick the agency environment working in small groups to build web applications for clients. ',
+        description: 'Sun Run is a fitness app that allows users to schedule their runs based on sunlight. User can select if they want to hit sunrise or sunset and plan their runs accordingly. Based on the users selection the app suggests when they should start their run to hit sunrise or sunset. / This agency-style application was built on REACT, in a group project assigned by Juno College as part of their curriculum. The main goal of the project was to mimick the agency environment working in small groups to build web applications for clients. ',
         requirements: [
             "Using the Sunrise/Sunset API - https://sunrise-sunset.org/api - suggest the time the user should leave for their run in order to hit sunrise or be back before sunset",
             " Users should be able to enter the date of their run and choose whether they want to start the run by sunrise or finish the run before the sun sets",
@@ -240,12 +272,7 @@ const projects=[
     {
         id: 1,
         name: 'Sophies Blog',
-        description: "A multipage website for Sophie's blog. Where she blogs about her daily life. The website is fully responsive on all screen sizes and has a collapsing navigation menu",
-        goal: 'To convert a static design into a multi-page, functional, responsive website.',
-        requirements: [
-            "Bring the designer’s vision to life with a fully-functional website using HTML and CSS techniques",
-            "Provide a good experience for the site's users across multiple devices and screen sizes"
-        ],
+        description: "A multipage website for Sophie's blog. Where she blogs about her daily life. The website is fully responsive on all screen sizes and has a collapsing navigation menu completed with HTML and CSS. / The main goal of this project was to convert a static design into a multi-page, functional, responsive website. In order to bring the designer’s vision to life with a fully-functional website using HTML and CSS techniques as well as provide a positive experience for the users across multiple devices and screen sizes",
         collaborators: [],
         createdOn: '',
         website: 'https://saramunir.github.io/saraMunirJunoProjectOne/',
@@ -262,8 +289,7 @@ const projects=[
     {
         id: 2,
         name: 'Thought Escape',
-        description: "A social media application based off facebook/twitter that allows a user to share their thoughts. Users can follow other users, comment on posts and like thoughts they or others have posted. /",
-        goal: 'To showcase an understanding of core React concepts (ie. state, props, components), working with external or third-party data sources (ie. APIs / Firebase), error handling and UI design..',
+        description: "A social media application based off facebook/twitter that allows a user to share their thoughts. Features include searching for other users on the platform, follow them, comment on their posts and like thoughts they or others have shared. / Goal of the project was to showcase an understanding of core React concepts (ie. state, props, components), working with external or third-party data sources (ie. APIs/Firebase), error handling and UI design. Some of the requirements included to successfully convey what the app does as well as being dynamic based on user interaction",
         requirements: [
             "It is clear to the user what the app does and results are displayed legibly",
             "App is dynamic based on user interaction (e.g. drop down menu, search field)", 
@@ -283,9 +309,7 @@ const projects=[
     {
         id: 3,
         name: 'Ecommerce Website',
-        description: "An eccomerce website that allows users to shop clotthing of their choices. / users can select clothing and add to cart. They can only select upto 5 of each size as maximum number. The quantity is based on stock available. if there are any clothing with zero amount, users are not able to select. / Users cart are saved in local storage when they come back. Once they select, they are then prompted to provide payment and shipping information. Upon completion they are provided with the order confirmation",
-        goal: 'To showcase the usage of local storage, backend integration with MongoDb along with successfully incorporating react components such as react routing, useState and useEffect',
-        requirements: [],
+        description: "An eccomerce website that allows users to shop clotthing of their choices. Users can view variety of clothes based on categories, such as gender, type etc. Users can select clothing and add to cart. They can only select upto 5 of each size as maximum number. The quantity is based on stock available. if there are any clothing with zero amount, users are not able to select. Users cart are saved in local storage when they come back to the site to continue shopping. Once they select, they are then prompted to provide payment and shipping information. Upon completion they are provided with the order confirmation. / To showcase the usage of local storage, backend integration with MongoDb along with successfully incorporating react components such as react routing, useState and useEffect",
         collaborators: [],
         createdOn: '',
         website: 'https://my-ecommerce-web.herokuapp.com/',
@@ -335,8 +359,7 @@ const projects=[
     {
         id: 5,
         name: 'Game Of Thrones Quote Trivia',
-        description: "This is a quiz app that users can take part in. User is give a random quote from API of the famous Game of Thrones tv show and they have to guess which character quoted this. / Each answers are recorded when selected and are given if it is correct or not. at the end of the quize users are give the total score",
-        goal: '',
+        description: "This is a quiz app that users can take part in. User is given a random quote from which is generated based on API of the famous Game of Thrones tv show and they have to guess which character quoted this. Each answers are recorded when selected and are given if it is correct or not. at the end of the quize users are give the total score. / Main Goal of the project was to showcase the understanding of usage of API integration as well general understanding of progamming.",
         requirements: [],
         collaborators: [
             {
@@ -359,7 +382,6 @@ const projects=[
     }
 ]
 $(document).ready(function(e){
-
     anime.timeline({loop: false})
     .add({
     targets: '.ml3 .letter',
@@ -369,3 +391,47 @@ $(document).ready(function(e){
     delay: (el, i) => 150 * (i+1)
     })
 })
+function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+const abt = document.getElementById('abt');
+const prt = document.getElementById('ports');
+const contactSect = document.querySelector('.contactShow');
+const header = document.querySelector('header');
+// const message = document.querySelector('#message');
+
+document.addEventListener('scroll', function () {
+    const isAboutVisible = isInViewport(abt)
+    const isPortsVisible = isInViewport(prt)
+    const isHeaderVisible = isInViewport(header)
+    const isContactsVisible = isInViewport(contactSect)
+        if(isHeaderVisible){
+            $('#aboutPortItm').removeClass("active")
+            $('#aboutNavItm').removeClass("active")
+            $('#contactsItm').removeClass("active")
+        }
+        if(isAboutVisible){
+            
+            $('#aboutNavItm').addClass("active")
+            $('#aboutPortItm').removeClass("active")
+            $('#contactsItm').removeClass("active")
+        } 
+        if(isPortsVisible){
+            $('#aboutPortItm').addClass("active")
+            $('#aboutNavItm').removeClass("active")
+            $('#contactsItm').removeClass("active")
+        }
+        if(isContactsVisible){
+            $('#contactsItm').addClass("active")
+            $('#aboutPortItm').removeClass("active")
+            $('#aboutNavItm').removeClass("active")
+        }
+}, {
+    passive: true
+});

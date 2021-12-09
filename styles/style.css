@@ -335,13 +335,13 @@ html {
 }
 
 .sideWidthBig {
-  width: 40%;
+  width: 45%;
   -webkit-transition: 2s;
   transition: 2s;
 }
 
 .sideWidthSmll {
-  width: 20%;
+  width: 18%;
   -webkit-transition: 2s;
   transition: 2s;
 }
@@ -354,9 +354,16 @@ html {
   position: sticky;
   top: 0;
 }
-.sideBar div .profileImg {
-  background: #f12365;
+.sideBar div .biggerHeight {
   height: 70vh;
+}
+.sideBar div .smallerHeight {
+  height: 40vh;
+}
+.sideBar div .profileImg {
+  -webkit-transition: 0.5;
+  transition: 0.5;
+  background: #f12365;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -367,6 +374,10 @@ html {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: end;
+}
+.sideBar div .profileImg img {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .sideBar div .sidebarFooter {
   height: 30vh;
@@ -382,6 +393,42 @@ html {
       -ms-flex-pack: justify;
           justify-content: space-between;
   text-align: center;
+  background: rgba(0, 0, 0, 0.377);
+}
+.sideBar div .sidebarFooter .menuCntr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+.sideBar div .sidebarFooter .menus {
+  margin: 0 auto;
+}
+.sideBar div .sidebarFooter .menus li button {
+  background: none;
+  border: none;
+  color: #c7c7c7;
+  padding: 30px;
+  font-size: 1.5rem;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  text-align: center;
+  cursor: pointer;
+}
+.sideBar div .sidebarFooter .menus li button:hover, .sideBar div .sidebarFooter .menus li a:focus {
+  color: #f12365;
+}
+.sideBar div .sidebarFooter .menus .active {
+  color: #f12365;
+  font-size: 2rem;
 }
 .sideBar div .sidebarFooter .socialLinks {
   display: -webkit-box;
@@ -405,11 +452,18 @@ html {
   color: #f12365;
 }
 .sideBar div .sidebarFooter p {
+  font-size: 0.8rem;
+  color: #f12365;
+}
+.sideBar div .sidebarFooter p a {
+  color: white;
+}
+.sideBar div .sidebarFooter p a:hover {
   color: #f12365;
 }
 
 .mainContent {
-  width: 80%;
+  width: 82%;
   min-height: 200vh;
   position: relative;
 }
@@ -474,6 +528,7 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  position: relative;
 }
 .mainContent .about p {
   font-size: 0.9rem;
@@ -482,7 +537,7 @@ html {
 .mainContent .about .aboutText {
   padding: 50px;
   width: 60%;
-  margin: 0 auto;
+  margin-right: auto;
 }
 .mainContent .about .aboutText .aboutMain {
   width: 90%;
@@ -555,6 +610,10 @@ html {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-height: 129vh;
 }
 .mainContent .about aside h3 {
   color: #f12365;
@@ -672,6 +731,9 @@ html {
       -ms-flex-pack: center;
           justify-content: center;
 }
+.mainContent .portfolio .portfolios .projectCntr .mainStack .square img {
+  width: 30px;
+}
 .mainContent .portfolio .portfolios .projectCntr .mainStack .triangleLeft {
   width: 0;
   height: 0;
@@ -780,7 +842,7 @@ html {
      object-fit: cover;
 }
 .mainContent .portfolio .portfolios .projectImgsSun {
-  height: 45vh;
+  height: 46vh;
 }
 .mainContent .portfolio .portfolios .focusImg {
   height: 50vh;
@@ -788,10 +850,10 @@ html {
      object-fit: cover;
 }
 .mainContent .portfolio .portfolios .projectImgStitches {
-  height: 35vh;
+  height: 38vh;
 }
 .mainContent .portfolio .portfolios .upperImages {
-  height: 30vh;
+  height: 34vh;
 }
 .mainContent .portfolio .portfolios .halfWidthImg {
   width: 50%;
@@ -800,10 +862,10 @@ html {
   height: 40vh;
 }
 .mainContent .portfolio .portfolios .movieManixImg {
-  height: 55vh;
+  height: 54vh;
 }
 .mainContent .portfolio .portfolios .gameOfThrns {
-  height: 25vh;
+  height: 30vh;
 }
 .mainContent .portfolioDetail {
   position: relative;
@@ -823,15 +885,31 @@ html {
 }
 .mainContent .portfolioDetail .detailWindow .projectText {
   padding: 30px;
-  width: 70%;
+  width: 85%;
   margin: 0 auto;
   height: 100vh;
-  overflow-y: hidden;
+  overflow-y: auto;
+  position: relative;
 }
 .mainContent .portfolioDetail .detailWindow .projectText .flexRow {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: start;
+}
+.mainContent .portfolioDetail .detailWindow .projectText .flexRow .closeProDetail {
+  cursor: pointer;
+  color: #b1a9a9;
+  font-size: 2rem;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background: none;
+  border: none;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.mainContent .portfolioDetail .detailWindow .projectText .flexRow .closeProDetail:hover {
+  color: #f12365;
 }
 .mainContent .portfolioDetail .detailWindow .projectText .flexRow img {
   width: 40px;
@@ -878,8 +956,9 @@ html {
 }
 .mainContent .portfolioDetail .detailWindow .projectText .projectSubContent p {
   color: white;
-  font-size: 1.2rem;
-  line-height: 50px;
+  font-size: 1.1rem;
+  line-height: 40px;
+  margin: 20px auto;
 }
 .mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .imageArray img {
   width: 100px;
@@ -1006,10 +1085,10 @@ html {
   border-radius: 5px;
 }
 .mainContent .portfolioDetail aside {
-  width: 30%;
+  width: 25%;
   margin: auto;
   background: rgba(0, 0, 0, 0.432);
-  height: 100vh;
+  min-height: 100vh;
 }
 .mainContent .portfolioDetail aside h4 {
   width: 100%;
@@ -1022,7 +1101,6 @@ html {
   margin: 10px 0;
 }
 .mainContent .portfolioDetail aside .projectImgs2 {
-  display: grid;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1038,22 +1116,151 @@ html {
   -ms-flex-line-pack: start;
       align-content: flex-start;
 }
-.mainContent .portfolioDetail aside img {
-  width: 35%;
-  height: 150px;
+.mainContent .portfolioDetail aside a {
+  width: 100%;
+}
+.mainContent .portfolioDetail aside a img {
+  width: 100%;
+  height: 30vh;
   -o-object-fit: cover;
      object-fit: cover;
-  margin: 20px auto;
   cursor: pointer;
   -webkit-filter: grayscale(100%);
           filter: grayscale(100%);
   border: 3px solid #f12365;
 }
-.mainContent .portfolioDetail aside img:hover {
+.mainContent .portfolioDetail aside a:hover img, .mainContent .portfolioDetail aside a:focus img {
   -webkit-filter: grayscale(0%);
           filter: grayscale(0%);
   -webkit-box-shadow: 0px 0px 20px #f12365;
           box-shadow: 0px 0px 20px #f12365;
+}
+.mainContent .contacts {
+  min-height: 100vh;
+}
+.mainContent .contacts .contactTxt {
+  padding: 30px 100px;
+  width: 80%;
+  margin-left: 0 auto;
+}
+.mainContent .contacts .contactTxt h2 {
+  color: #f12365;
+  font-family: "DM Serif Display", serif;
+  text-transform: capitalize;
+  font-size: 3rem;
+  margin: 10px 0;
+}
+.mainContent .contacts .contactTxt h2 span {
+  color: white;
+}
+.mainContent .contacts .contactTxt .contactMain {
+  min-height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.mainContent .contacts .contactTxt .contactMain h3 {
+  color: white;
+  font-family: "DM Serif Display", serif;
+  text-transform: capitalize;
+  font-size: 2.3rem;
+  margin: 10px 0;
+  margin: 20px 0;
+}
+.mainContent .contacts .contactTxt .contactMain h3 span {
+  color: white;
+}
+.mainContent .contacts .contactTxt .contactMain form {
+  width: 80%;
+}
+.mainContent .contacts .contactTxt .contactMain input[type=text], .mainContent .contacts .contactTxt .contactMain input[type=email], .mainContent .contacts .contactTxt .contactMain textarea {
+  width: 100%;
+  border: none;
+  background: white;
+  padding: 25px;
+  margin: 10px auto;
+  background: transparent;
+  border: 2px solid #f12365;
+  color: #f12365;
+}
+.mainContent .contacts .contactTxt .contactMain textarea {
+  max-width: 100%;
+  min-width: 100%;
+}
+.mainContent .contacts .contactTxt .contactMain input:focus, .mainContent .contacts .contactTxt .contactMain textarea:focus {
+  border: 2px solid #ffdce7;
+  outline: none;
+}
+.mainContent .contacts .contactTxt .contactMain textarea::-webkit-input-placeholder, .mainContent .contacts .contactTxt .contactMain input[type=text]::-webkit-input-placeholder, .mainContent .contacts .contactTxt .contactMain input[type=email]::-webkit-input-placeholder {
+  font-style: italic;
+}
+.mainContent .contacts .contactTxt .contactMain textarea::-moz-placeholder, .mainContent .contacts .contactTxt .contactMain input[type=text]::-moz-placeholder, .mainContent .contacts .contactTxt .contactMain input[type=email]::-moz-placeholder {
+  font-style: italic;
+}
+.mainContent .contacts .contactTxt .contactMain textarea:-ms-input-placeholder, .mainContent .contacts .contactTxt .contactMain input[type=text]:-ms-input-placeholder, .mainContent .contacts .contactTxt .contactMain input[type=email]:-ms-input-placeholder {
+  font-style: italic;
+}
+.mainContent .contacts .contactTxt .contactMain textarea::-ms-input-placeholder, .mainContent .contacts .contactTxt .contactMain input[type=text]::-ms-input-placeholder, .mainContent .contacts .contactTxt .contactMain input[type=email]::-ms-input-placeholder {
+  font-style: italic;
+}
+.mainContent .contacts .contactTxt .contactMain textarea::placeholder, .mainContent .contacts .contactTxt .contactMain input[type=text]::placeholder, .mainContent .contacts .contactTxt .contactMain input[type=email]::placeholder {
+  font-style: italic;
+}
+.mainContent .contacts .contactTxt .contactMain button {
+  width: 100%;
+  background: #f12365;
+  border: none;
+  padding: 20px;
+  margin: 10px 0;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 600;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.mainContent .contacts .contactTxt .contactMain button:hover, .mainContent .contacts .contactTxt .contactMain button:focus {
+  background: white;
+  color: #f12365;
+}
+
+@media (max-width: 950px) {
+  .mainContent .portfolio .portfolios .movieManixImg {
+    height: 49vh;
+  }
+  .mainContent .portfolio .portfolios .gameOfThrns {
+    height: 35vh;
+  }
+  .mainContent .portfolio .portfolios .projectCntr .imgTop h3 {
+    color: #ffffff;
+    font-family: "DM Serif Display", serif;
+    text-transform: capitalize;
+    font-size: 1.4rem;
+    margin: 10px 0;
+  }
+  .mainContent .portfolio .portfolios .projectCntr .imgTop .btnCntr {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .mainContent .portfolio .portfolios .projectCntr .imgTop .btnCntr button {
+    width: 90%;
+    margin: 5px auto;
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+}
+html {
+  background-image: url("../assets/blackStripedBackgroun.png");
+  scroll-behavior: smooth;
 }
 
 body {
@@ -1062,6 +1269,8 @@ body {
   background-position: center;
   background-attachment: fixed;
   font-family: "Poppins", sans-serif;
+  position: relative;
+  z-index: -10;
 }
 
 img {
@@ -1163,4 +1372,10 @@ section {
 /* width */
 .cursorPntr {
   cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .gridRow {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

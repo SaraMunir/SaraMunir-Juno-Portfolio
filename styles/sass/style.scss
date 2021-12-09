@@ -1,3 +1,6 @@
+$accentColor: #f12365;
+
+
 @mixin basicHeadingFont($customFontSize, $customFontcolor ){
     color: $customFontcolor;                    
     font-family: 'DM Serif Display', serif;
@@ -6,10 +9,15 @@
     margin: 10px 0;
 }
 @import 'modal';
-
 @import 'normalize';
 @import 'sideBar';
 @import 'generalStyle';
+
+html {
+    // background: rgb(29, 29, 29);
+    background-image: url('../assets/blackStripedBackgroun.png');
+    scroll-behavior: smooth;
+}
 
 body {
     background-image: url('../assets/blackStripedBackgroun.png');
@@ -17,6 +25,8 @@ body {
     background-position: center;
     background-attachment: fixed;
     font-family: 'Poppins', sans-serif;
+    position: relative;
+    z-index: -10;
 
 }
 img {
@@ -50,12 +60,17 @@ section {
     font-weight: 900;
     font-size: 3.5em;
 }
+
+
+// button {
+//     background: none;
+// }
 .buttons {
     margin: 50px 0;
     a, button {
         cursor: pointer;
         border-style: none;
-        color: #f12365;
+        color: $accentColor;
         background: white;
         padding: 10px 25px;
         border-radius: 50px;
@@ -68,7 +83,7 @@ section {
     }
     a:hover, a:focus, button:hover, button:focus{
         color: white;
-        background: #f12365;
+        background: $accentColor;
     }
 }
 .buttons2 {
@@ -90,8 +105,8 @@ section {
     }
     a:hover, a:focus, button:hover, button:focus{
         color: black;
-        background: #f12365;
-        border: 2px solid #f12365;
+        background: $accentColor;
+        border: 2px solid $accentColor;
 
     }
 }
@@ -103,3 +118,10 @@ section {
 .cursorPntr{
     cursor: pointer;
 }
+@media (max-width: 900px){
+
+    .gridRow{
+        grid-template-columns: 1fr 1fr 1fr;
+
+    }
+     }
