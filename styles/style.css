@@ -1454,7 +1454,6 @@ html {
 }
 html {
   background-image: url("../assets/blackStripedBackgroun.png");
-  scroll-behavior: smooth;
 }
 
 body {
