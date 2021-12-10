@@ -72,3 +72,22 @@
         }
     }
 }
+@media (max-width: 850px){
+    .modal{
+        .imgFocused{
+            width: 95%;
+            .fixedImgwidth {
+                width: 80%;
+                }
+            i {
+                width: 10%;
+                margin: 0 auto;
+                font-size: 3rem;
+                padding: 20px;
+                cursor: pointer;
+                text-align: center;
+            }
+        }
+    }
+}
+

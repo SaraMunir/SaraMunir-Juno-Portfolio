@@ -40,8 +40,6 @@ $(document).ready(function(e){
 //       $('#aboutNavItm').html('<i class="fas fa-user-circle"></i>')
 //       $('#aboutPortItm').html('<i class="fas fa-th"></i>')
 //       $('#contactsItm').html('<i class="far fa-address-book"></i>')
-      
-      
 //     }
 // }
 // mediaQuery.addListener(handleTabletChange)
@@ -90,7 +88,7 @@ const scrollingEffect=()=> {
                 $(".menus").fadeIn(1000)
                 
             }, 1000);
-            // $('.socialLinks').css("flex-direction","column")
+            $('.socialLinks').css("flex-direction","column")
         }
     } else {
     }

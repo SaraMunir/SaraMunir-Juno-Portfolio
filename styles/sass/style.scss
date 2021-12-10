@@ -2,7 +2,9 @@ $accentColor: #f12365;
 
 @mixin basicHeadingFont($customFontSize, $customFontcolor ){
     color: $customFontcolor;                    
-    font-family: 'DM Serif Display', serif;
+    // font-family: 'DM Serif Display', serif;
+    font-family: 'Philosopher', sans-serif;
+
     text-transform: capitalize;
     font-size: $customFontSize;
     margin: 10px 0;
@@ -194,10 +196,12 @@ section {
 .responsive{
     display: none;
     text-align: center;
+    margin: 0 auto;
 }
 .notResponsive{
     display: block;
     text-align: center;
+    margin: 0 auto;
 }
 
 @media (max-width: 900px){

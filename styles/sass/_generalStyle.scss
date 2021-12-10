@@ -20,6 +20,7 @@
             padding-left: 120px;
             h2{
                 font-family: 'DM Serif Display', serif;
+                
                 text-transform: capitalize;
                 font-style: italic;
                 font-size: 2rem;
@@ -27,6 +28,8 @@
             }
             h1 {
                 @include basicHeadingFont(5rem, $accentColor);
+                font-weight: 400;
+
             }
             h3 {
                 font-family: 'Poppins', sans-serif;
