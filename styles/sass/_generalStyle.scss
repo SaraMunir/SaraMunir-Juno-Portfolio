@@ -335,6 +335,10 @@
                 height: 100vh;
                 overflow-y: auto;
                 position: relative;
+                .projectTxtCntr{
+                    width: 80%;
+                    margin: 0 auto;
+                }
                 .flexRow {
                     justify-content: start;
                     .closeProDetail{
@@ -589,7 +593,7 @@
     }
 }
 
-@media (max-width: 950px){
+@media (max-width: 1050px){
     .mainContent {
         .portfolio{
 
@@ -622,7 +626,154 @@
             }
         }
     }
+}
+@media (max-width: 850px){
+    .mainContent {
+        header {
+            .heroText{
+                padding-left: 60px;
+                padding-top: 34px;
+            }
+        }
+        .about {
+            flex-direction: column;
+            .aboutText{
+                width: 100%;
+                padding: 30px;
+                .aboutMain{
+                    h2{
+                        @include basicHeadingFont(3.4rem, $accentColor);
+                    }
+                    p {
+                        font-size: 1rem;
+                        line-height: 35px;
+                    }
+                }
+            }
+            aside{
+                width: 100%;
+                min-height: 56vh;
+                position: relative;
+                padding: 35px 50px;
+                h3{
+                    @include basicHeadingFont(2.6rem, $accentColor);
+                }
+                .iconsArr{
+                    padding: 10px;
+                    justify-content: start;
+                }
+                i {
+                    font-size: 2.1rem;
+                    margin-right: 15px;
+                }
+                img {
+                    width: 35px;
+                    margin-right: 15px;
+                }
+                .stackSection{
+                    display: grid;
+                    grid-template-columns: 1fr 2fr;
+                    gap: 13px;
+                    align-items: center;
+                }
+            }
+        }
+        .portfolio{
+            .portfolioTxt{
+                padding: 22px;
+                // width: 100%;
+                // margin-left: 0 auto;
+                h2{
+                    @include basicHeadingFont(3rem, $accentColor);
+                }
+            }
+            .portfolios{
+                .gridItm3{
+                    flex-direction: row;
+                    grid-column-start: 1;
+                    grid-column-end: 3;
+                }
+                .movieManixImg {
+                    height: 30vh;
+                    width: 100%;
+                    }
+                .gameOfThrns {
+                    height: 30vh;
+                    width: 100%;
+                    }
+                .projectImgsSun{
+                    height: 28vh;
+                }
+                .projectImgStitches{
+                    height: 34vh;
+                }
+                .upperImages{
+                    height: 32vh;
+                }
+                .focusImg {
+                    height: 30vh;
+                }
+                .projectCntr{
+        
+                    .imgTop{
+                        padding: 8px;
+                        .content {
+                            img {
+                                width: 40px;
+                                height: 40px;
+                            }
+                            h3{
+                                @include basicHeadingFont(1.2rem, #ffffff);
+                            }
+                        }
+                        .btnCntr {
+                            flex-direction: column;
+                            button {
+                                width: 90%;
+                                margin: 5px auto;
+                                font-size: .9rem;
+                                padding: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .portfolioDetail{
+            .detailWindow{
+                .projectText{
+                    .projectTxtCntr{
+                        width: 100%;
+                        margin: 0 auto;
+                    }
+                    .projectMain{
+                        h3{
+                            @include basicHeadingFont(2.5rem,  $accentColor);
+                        }
 
+                    }
+                    .projectSubContent{
+                        padding-top: 20px;
+                    }
+                }
+            }
+        }
+        .contacts{
+            .contactTxt{
+                padding: 15px 58px;
+                width: 100%;
+                .contactMain{
+                    h3{
+                        @include basicHeadingFont(2rem, #ffffff);
+                        margin: 16px 0;
+                    }
+                    form {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
 }
 // .mainContent .portfolio .portfolios .projectCntr .imgTop .btnCntr button {
 //     width: 52%;

@@ -38,6 +38,9 @@
             </div>
         </div>
     </div>
+    <div class="menuBtn">
+        <div class="hamBrgr"></div>
+    </div>
     <div class="flexRow">
         <section class="sideBar sideWidthBig" id="sideBar">
             <div>
@@ -58,10 +61,27 @@
                     <div class="menuCntr">
                         <div class="menus hide">
                             <ul>
-                                <li><button id="aboutNavItm" onclick="showContent('aboutMe')">About Me</button></li>
-                                <li><button id="aboutPortItm" onclick="showContent('portfolios')">Portfolio</button></li>
-                                <li><button
-                                id="contactsItm" onclick="showContent('contacts')"> Contact</button></li>
+                                <li class="hvrCntr">
+                                    <a href="#about" class="hvrCntr">
+                                        <button class="notResponsive" id="aboutNavItm" onclick="showContent('aboutMe')">About Me</button>
+                                        <button class="responsive" id="aboutNavItm2" onclick="showContent('aboutMe')"><i class="fas fa-user-circle"></i></button>
+                                        <div class="hvrWndo">About Me</div>
+                                    </a>
+                                </li>
+                                <li class="hvrCntr">
+                                    <a href="#portfolio" class="hvrCntr">
+                                        <button class="notResponsive" id="aboutPortItm" onclick="showContent('portfolios')">Portfolio</button>
+                                        <button class="responsive" id="aboutPortItm2" onclick="showContent('portfolios')"><i class="fas fa-th"></i></button>
+                                        <div class="hvrWndo">Portfolio</div>
+                                    </a>
+                                </li>
+                                <li class="hvrCntr">
+                                    <a href="#contacts" class="hvrCntr">
+                                        <button class="notResponsive" id="contactsItm" onclick="showContent('contacts')"> Contact</button>
+                                        <button class="responsive" id="contactsItm2" onclick="showContent('contacts')"> <i class="far fa-address-book"></i></button>
+                                        <div class="hvrWndo" >Contacts</div>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -136,7 +156,7 @@
                 data-aos-delay="1000"
                 data-aos-once="true">
                     <h3><span>./</span> Skills</h3>
-                    <div >
+                    <div class="stackSection">
                         <h4><span>../</span> Languages</h4>
                         <div class="iconsArr" >
                             <i class="fab fa-js" title="javascrip"></i>
@@ -173,7 +193,7 @@
                     <h2><span>./</span>portfolio</h2>
                 </div>
                 <div class="portfolios gridRow" id="projectsAll">
-                    <div class="col1">
+                    <div class="col1 gridItm1">
                         <a onfocus="showTop('sunRun')" href="#SunRun" class="projectCntr projectImgsSun">
                             <div class="mainStack">
                                 <div class="square">
@@ -226,7 +246,7 @@
                             <img class="imgSettings" src="./assets/eccomerseStitchesPreview.jpg" alt="ecommerce page">
                         </a>
                     </div>
-                    <div class="col1">
+                    <div class="col1 gridItm2">
                         <a onfocus="showTop('sophie')" href="#sophie"  class="projectCntr upperImages">
                             <div class="mainStack">
                                 <div class="square">
@@ -281,7 +301,7 @@
                             <img class="imgSettings" src="./assets/laptopWithThoughtEscape.jpg" alt="thouse escape page">
                         </a>
                     </div>
-                    <div class="col1">
+                    <div class="col1 gridItm3">
                         <a onfocus="showTop('movieManix')" href="#movieManix" class="projectCntr movieManixImg">
                             <div class="mainStack">
                                 <div class="square">
@@ -338,7 +358,7 @@
             <section class="portfolioDetail hide" id="portfolioDetail">
                 <div class="flexRow detailWindow">
                     <div class="projectText">
-                        <div style="width: 80%; margin: 0 auto;">
+                        <div class="projectTxtCntr">
                             <div class="flexRow">
                                 <button class="closeProDetail">
                                     <i class=" fas fa-times"  onclick="goBackToPortfolio()
@@ -400,7 +420,7 @@
                                 <input type="text" name="_subject" placeholder="Subject" id="subject" required>
                             </div>
                             <div>
-                                <textarea class="gridItm3" name="message" id="message" cols="30" rows="10" placeholder="Message" required></textarea>
+                                <textarea  name="message" id="message" cols="30" rows="10" placeholder="Message" required></textarea>
                             </div>
                             <input type="hidden" name="_next" value="https://www.saramunir.com">
                             <button  type="submit">Send me a message</button>

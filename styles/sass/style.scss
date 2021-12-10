@@ -1,6 +1,5 @@
 $accentColor: #f12365;
 
-
 @mixin basicHeadingFont($customFontSize, $customFontcolor ){
     color: $customFontcolor;                    
     font-family: 'DM Serif Display', serif;
@@ -8,7 +7,7 @@ $accentColor: #f12365;
     font-size: $customFontSize;
     margin: 10px 0;
 }
-@import 'modal';
+@import 'modal'; 
 @import 'normalize';
 @import 'sideBar';
 @import 'generalStyle';
@@ -27,7 +26,6 @@ body {
     font-family: 'Poppins', sans-serif;
     position: relative;
     z-index: -10;
-
 }
 img {
     width: 100%;
@@ -60,13 +58,11 @@ section {
     font-weight: 900;
     font-size: 3.5em;
 }
-
-
-// button {
-//     background: none;
-// }
 .buttons {
     margin: 50px 0;
+    display: flex;
+    flex-wrap: wrap;
+    
     a, button {
         cursor: pointer;
         border-style: none;
@@ -80,6 +76,7 @@ section {
         letter-spacing: 2px;
         margin-right: 20px;
         transition: .5s;
+        margin-bottom: 10px;
     }
     a:hover, a:focus, button:hover, button:focus{
         color: white;
@@ -118,6 +115,91 @@ section {
 .cursorPntr{
     cursor: pointer;
 }
+.positionRelative{
+    position: relative;
+}
+.hvrCntr{
+    // border: 1px solid rebeccapurple;
+    display: block;
+    position: relative;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    .hvrWndo{
+        display: none;
+        // min-width: 150px;
+        // height: 50px;
+        border-radius: 10px;
+        position: absolute;
+        top: 0;
+        left: 60px;
+        border: 1px solid $accentColor;
+        color: #ffffff;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: .5s;
+        background: $accentColor;
+        z-index: 20;
+        min-height: 0;
+        min-width: 0px;
+        overflow: auto;
+    }
+}
+
+.menuBtn{
+    position: fixed;
+    padding: 20px;
+    width: 80px;
+    height: 80px;
+    top: 20px;
+    left: 20px;
+    z-index: 200;
+    cursor: pointer;
+    .hamBrgr{
+        width: 35px;
+        height: 3px;
+        background: white;
+        border-radius: 5px;
+        transition: .5s ease all;
+    }
+    .hamBrgr::before, .hamBrgr::after {
+        content: '';
+        width: 30px;
+        height: 3px;
+        position: absolute;
+        background: #ffffff91;
+        border-radius: 5px;
+        transition: .5s ease all;
+    }
+    .hamBrgr::before{
+        transform: translateY(-12px);
+    }
+    .hamBrgr::after{
+        transform: translateY(12px);
+    }
+}
+.menuBtn:hover .hamBrgr {
+    width: 40px;
+}
+.menuBtn:hover .hamBrgr::before{
+    width: 20px;
+}
+.menuBtn:hover .hamBrgr::after{
+    width: 45px;
+}
+.responsive{
+    display: none;
+    text-align: center;
+}
+.notResponsive{
+    display: block;
+    text-align: center;
+}
+
 @media (max-width: 900px){
 
     .gridRow{
@@ -125,3 +207,26 @@ section {
 
     }
      }
+
+@media (max-width: 850px){
+    .buttons {
+        margin: 35px 0;
+        }
+    .gridRow {
+        grid-template-columns: 1fr 1fr;
+        }
+
+    .hvrCntr:hover .hvrWndo, .hvrCntr:focus .hvrWndo{
+        opacity: 1;   
+        min-height: 50px;
+        min-width: 150px;
+    
+    }
+    .responsive{
+        display: block;
+    }
+    .notResponsive{
+        display: none;
+    }
+        
+}

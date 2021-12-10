@@ -349,6 +349,8 @@ html {
 .sideBar {
   -webkit-transition: 0.5;
   transition: 0.5;
+  position: relative;
+  z-index: 50;
 }
 .sideBar div {
   position: sticky;
@@ -416,7 +418,7 @@ html {
   background: none;
   border: none;
   color: #c7c7c7;
-  padding: 30px;
+  padding: 30px 0;
   font-size: 1.5rem;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -462,6 +464,22 @@ html {
   color: #f12365;
 }
 
+@media (max-width: 850px) {
+  .sideBar div .sidebarFooter .socialLinks {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .sideBar div .sidebarFooter .socialLinks a {
+    font-size: 1.3rem;
+  }
+  .sideBar div .sidebarFooter .socialLinks li {
+    margin: 5px;
+  }
+}
 .mainContent {
   width: 82%;
   min-height: 200vh;
@@ -891,6 +909,10 @@ html {
   overflow-y: auto;
   position: relative;
 }
+.mainContent .portfolioDetail .detailWindow .projectText .projectTxtCntr {
+  width: 80%;
+  margin: 0 auto;
+}
 .mainContent .portfolioDetail .detailWindow .projectText .flexRow {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
@@ -1231,7 +1253,7 @@ html {
   color: #f12365;
 }
 
-@media (max-width: 950px) {
+@media (max-width: 1050px) {
   .mainContent .portfolio .portfolios .movieManixImg {
     height: 49vh;
   }
@@ -1256,6 +1278,161 @@ html {
     margin: 5px auto;
     font-size: 0.9rem;
     padding: 12px;
+  }
+}
+@media (max-width: 850px) {
+  .mainContent header .heroText {
+    padding-left: 60px;
+    padding-top: 34px;
+  }
+  .mainContent .about {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .mainContent .about .aboutText {
+    width: 100%;
+    padding: 30px;
+  }
+  .mainContent .about .aboutText .aboutMain h2 {
+    color: #f12365;
+    font-family: "DM Serif Display", serif;
+    text-transform: capitalize;
+    font-size: 3.4rem;
+    margin: 10px 0;
+  }
+  .mainContent .about .aboutText .aboutMain p {
+    font-size: 1rem;
+    line-height: 35px;
+  }
+  .mainContent .about aside {
+    width: 100%;
+    min-height: 56vh;
+    position: relative;
+    padding: 35px 50px;
+  }
+  .mainContent .about aside h3 {
+    color: #f12365;
+    font-family: "DM Serif Display", serif;
+    text-transform: capitalize;
+    font-size: 2.6rem;
+    margin: 10px 0;
+  }
+  .mainContent .about aside .iconsArr {
+    padding: 10px;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
+  .mainContent .about aside i {
+    font-size: 2.1rem;
+    margin-right: 15px;
+  }
+  .mainContent .about aside img {
+    width: 35px;
+    margin-right: 15px;
+  }
+  .mainContent .about aside .stackSection {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 13px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .mainContent .portfolio .portfolioTxt {
+    padding: 22px;
+  }
+  .mainContent .portfolio .portfolioTxt h2 {
+    color: #f12365;
+    font-family: "DM Serif Display", serif;
+    text-transform: capitalize;
+    font-size: 3rem;
+    margin: 10px 0;
+  }
+  .mainContent .portfolio .portfolios .gridItm3 {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  .mainContent .portfolio .portfolios .movieManixImg {
+    height: 30vh;
+    width: 100%;
+  }
+  .mainContent .portfolio .portfolios .gameOfThrns {
+    height: 30vh;
+    width: 100%;
+  }
+  .mainContent .portfolio .portfolios .projectImgsSun {
+    height: 28vh;
+  }
+  .mainContent .portfolio .portfolios .projectImgStitches {
+    height: 34vh;
+  }
+  .mainContent .portfolio .portfolios .upperImages {
+    height: 32vh;
+  }
+  .mainContent .portfolio .portfolios .focusImg {
+    height: 30vh;
+  }
+  .mainContent .portfolio .portfolios .projectCntr .imgTop {
+    padding: 8px;
+  }
+  .mainContent .portfolio .portfolios .projectCntr .imgTop .content img {
+    width: 40px;
+    height: 40px;
+  }
+  .mainContent .portfolio .portfolios .projectCntr .imgTop .content h3 {
+    color: #ffffff;
+    font-family: "DM Serif Display", serif;
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+  .mainContent .portfolio .portfolios .projectCntr .imgTop .btnCntr {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .mainContent .portfolio .portfolios .projectCntr .imgTop .btnCntr button {
+    width: 90%;
+    margin: 5px auto;
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+  .mainContent .portfolioDetail .detailWindow .projectText .projectTxtCntr {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .mainContent .portfolioDetail .detailWindow .projectText .projectMain h3 {
+    color: #f12365;
+    font-family: "DM Serif Display", serif;
+    text-transform: capitalize;
+    font-size: 2.5rem;
+    margin: 10px 0;
+  }
+  .mainContent .portfolioDetail .detailWindow .projectText .projectSubContent {
+    padding-top: 20px;
+  }
+  .mainContent .contacts .contactTxt {
+    padding: 15px 58px;
+    width: 100%;
+  }
+  .mainContent .contacts .contactTxt .contactMain h3 {
+    color: #ffffff;
+    font-family: "DM Serif Display", serif;
+    text-transform: capitalize;
+    font-size: 2rem;
+    margin: 10px 0;
+    margin: 16px 0;
+  }
+  .mainContent .contacts .contactTxt .contactMain form {
+    width: 100%;
   }
 }
 html {
@@ -1318,6 +1495,11 @@ section {
 
 .buttons {
   margin: 50px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 .buttons a, .buttons button {
   cursor: pointer;
@@ -1333,6 +1515,7 @@ section {
   margin-right: 20px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  margin-bottom: 10px;
 }
 .buttons a:hover, .buttons a:focus, .buttons button:hover, .buttons button:focus {
   color: white;
@@ -1374,8 +1557,133 @@ section {
   cursor: pointer;
 }
 
+.positionRelative {
+  position: relative;
+}
+
+.hvrCntr {
+  display: block;
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.hvrCntr .hvrWndo {
+  display: none;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 60px;
+  border: 1px solid #f12365;
+  color: #ffffff;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background: #f12365;
+  z-index: 20;
+  min-height: 0;
+  min-width: 0px;
+  overflow: auto;
+}
+
+.menuBtn {
+  position: fixed;
+  padding: 20px;
+  width: 80px;
+  height: 80px;
+  top: 20px;
+  left: 20px;
+  z-index: 200;
+  cursor: pointer;
+}
+.menuBtn .hamBrgr {
+  width: 35px;
+  height: 3px;
+  background: white;
+  border-radius: 5px;
+  -webkit-transition: 0.5s ease all;
+  transition: 0.5s ease all;
+}
+.menuBtn .hamBrgr::before, .menuBtn .hamBrgr::after {
+  content: "";
+  width: 30px;
+  height: 3px;
+  position: absolute;
+  background: #ffffff91;
+  border-radius: 5px;
+  -webkit-transition: 0.5s ease all;
+  transition: 0.5s ease all;
+}
+.menuBtn .hamBrgr::before {
+  -webkit-transform: translateY(-12px);
+          transform: translateY(-12px);
+}
+.menuBtn .hamBrgr::after {
+  -webkit-transform: translateY(12px);
+          transform: translateY(12px);
+}
+
+.menuBtn:hover .hamBrgr {
+  width: 40px;
+}
+
+.menuBtn:hover .hamBrgr::before {
+  width: 20px;
+}
+
+.menuBtn:hover .hamBrgr::after {
+  width: 45px;
+}
+
+.responsive {
+  display: none;
+  text-align: center;
+}
+
+.notResponsive {
+  display: block;
+  text-align: center;
+}
+
 @media (max-width: 900px) {
   .gridRow {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 850px) {
+  .buttons {
+    margin: 35px 0;
+  }
+
+  .gridRow {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hvrCntr:hover .hvrWndo, .hvrCntr:focus .hvrWndo {
+    opacity: 1;
+    min-height: 50px;
+    min-width: 150px;
+  }
+
+  .responsive {
+    display: block;
+  }
+
+  .notResponsive {
+    display: none;
   }
 }

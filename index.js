@@ -1,4 +1,53 @@
 window.onscroll = function() {scrollingEffect()};
+const mediaQuery = window.matchMedia('(min-width: 851px)')
+const mediaQuery2 = window.matchMedia('(max-width: 850px)')
+
+$(document).ready(function(e){
+    anime.timeline({loop: false})
+    .add({
+    targets: '.ml3 .letter',
+    opacity: [0,1],
+    easing: "easeInOutQuad",
+    duration: 2550,
+    delay: (el, i) => 150 * (i+1)
+    })
+    // if(mediaQuery2.matches) {
+    //     // $('#aboutNavItm').html('<i class="far fa-address-card"></i>')
+    //     $('#aboutNavItm').html('<i class="fas fa-user-circle"></i>')
+    //     $('#aboutPortItm').html('<i class="fas fa-th"></i>')
+    //     $('#contactsItm').html('<i class="far fa-address-book"></i>')
+    // }
+    // if(mediaQuery.matches) {
+    //     // $('#aboutNavItm').html('<i class="far fa-address-card"></i>')
+    //     $('#aboutNavItm').html('About Me')
+    //     $('#aboutPortItm').html('Portfolio')
+    //     $('#contactsItm').html('Contact')
+    // }
+})
+// function handleTabletChange(e) {
+//     // Check if the media query is true
+//     if (e.matches) {
+//       // Then log the following message to the console
+//         $('#aboutNavItm').html('About Me')
+//         $('#aboutPortItm').html('Portfolio')
+//         $('#contactsItm').html('Contact')
+//     }
+// }
+// function handleTabletChange2(e) {
+//     // Check if the media query is true
+//     if (e.matches) {
+//       // Then log the following message to the console
+//       $('#aboutNavItm').html('<i class="fas fa-user-circle"></i>')
+//       $('#aboutPortItm').html('<i class="fas fa-th"></i>')
+//       $('#contactsItm').html('<i class="far fa-address-book"></i>')
+      
+      
+//     }
+// }
+// mediaQuery.addListener(handleTabletChange)
+// handleTabletChange(mediaQuery)
+// mediaQuery2.addListener(handleTabletChange2)
+// handleTabletChange(mediaQuery2)
 
 const scrollingEffect=()=> {
     if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
@@ -6,21 +55,43 @@ const scrollingEffect=()=> {
         $('#sideBar').removeClass( "sideWidthBig" )
         // $('#profImgCntr').removeClass( "biggerHeight" )
         // $('#profImgCntr').addClass( "smallerHeight" )
-        $('#profImgCntr').animate({
-            height: "40vh"
-        }, 1000);
-
-        $('.sidebarFooter').animate({
-            minHeight: "60vh"
-        }, 1000);
-        
-        $('.menuCntr').animate({
-            minHeight: "40vh"
-        }, 1000);
-        setInterval(() => {
-            $(".menus").fadeIn(1000)
+        if (mediaQuery.matches) {
+            // Then trigger an alert
+            $('#profImgCntr').animate({
+                height: "40vh"
+            }, 1000);
+    
+            $('.sidebarFooter').animate({
+                minHeight: "60vh"
+            }, 1000);
             
-        }, 1000);
+            $('.menuCntr').animate({
+                minHeight: "40vh"
+            }, 1000);
+            setInterval(() => {
+                $(".menus").fadeIn(1000)
+                
+            }, 1000);
+        }
+        if (mediaQuery2.matches) {
+            // Then trigger an alert
+            $('#profImgCntr').animate({
+                height: "30vh"
+            }, 1000);
+    
+            $('.sidebarFooter').animate({
+                minHeight: "70vh"
+            }, 1000);
+            
+            $('.menuCntr').animate({
+                minHeight: "30vh"
+            }, 1000);
+            setInterval(() => {
+                $(".menus").fadeIn(1000)
+                
+            }, 1000);
+            // $('.socialLinks').css("flex-direction","column")
+        }
     } else {
     }
     if (document.body.scrollTop > 1800 || document.documentElement.scrollTop > 1800) {
@@ -39,24 +110,33 @@ const showContent=(type)=>{
             scrollTop: $("#about").offset().top
         }, 1000);
         $('#aboutNavItm').addClass("active")
+        $('#aboutNavItm2').addClass("active")
         $('#aboutPortItm').removeClass("active")
+        $('#aboutPortItm2').removeClass("active")
         $('#contactsItm').removeClass("active")
+        $('#contactsItm2').removeClass("active")
     }
     if(type=== 'portfolios'){
         $('html, body').animate({
             scrollTop: $("#portfolio").offset().top
         }, 1000);
         $('#aboutNavItm').removeClass("active")
+        $('#aboutNavItm2').removeClass("active")
         $('#aboutPortItm').addClass("active")
+        $('#aboutPortItm2').addClass("active")
         $('#contactsItm').removeClass("active")
+        $('#contactsItm2').removeClass("active")
     }
     if(type=== 'contacts'){
         $('html, body').animate({
             scrollTop: $("#contactSect").offset().top
         }, 1000);
         $('#aboutNavItm').removeClass("active")
+        $('#aboutNavItm2').removeClass("active")
         $('#aboutPortItm').removeClass("active")
+        $('#aboutPortItm2').removeClass("active")
         $('#contactsItm').addClass("active")
+        $('#contactsItm2').addClass("active")
     }
 }
 const openModal = (idx, imgIdx)=>{
@@ -119,38 +199,28 @@ const closeModal = ()=>{
     $('#modal').hide( "slow" )
 }
 const showDetail=async(id)=>{
-    console.log('show detail')
     $('#portfolio').hide( "slow" )
     $('#portfolioDetail').show( "slow" )
-    console.log(projects[id].name)
     $('#projectName').text('')
-    // $('#projectName').html(`
-    //     <a class="projectLink" id="projectName" href="${projects[id].website}">${projects[id].name}</a>
-    // `)
     $('#projectName').attr("href", `${projects[id].website}`)
     $('#projectName').text(projects[id].name)
     const projectParagraphs = projects[id].description.split(' / ')
-    console.log(projectParagraphs)
     $('#projectDescription').html('')
     projectParagraphs.forEach(para=>{
         $('#projectDescription').append(`
         <p>${para}</p>
         `)
     })
-
     $('#projectImgs').html('')
     $('#projectCollabs').html('')
-    // $('.imageArray').html('')
     $('.stackArray').html('')
     projects[id].images.slice(0, 3).forEach((image, idx)=>{
-        console.log(image)
         $('#projectImgs').append(`
         <a href="#" onclick="openModal('${id}','${idx}')">
         <img src='${image}' alt='image of ${projects[id].name}'>
         </a>
         `)
     })
-    // ['REACT', 'firebase', 'css', 'html', 'javascript']
     projects[id].stacks.forEach(stack=>{
         if(stack === 'REACT'){
             $('.stackArray').append(`
@@ -195,10 +265,7 @@ const showDetail=async(id)=>{
     })
     if(projects[id].collaborators.length>0){
         $('#projectCollabs').append('<p>Collaborators</p>')
-        
         projects[id].collaborators.forEach(async collaborator=>{
-            // console.log(collaborator)
-            // console.log(collaborator.website)
             await fetch(`https://api.github.com/users/${collaborator.github}`)
                 .then(res => res.json())
                 .then(data => {
@@ -381,16 +448,6 @@ const projects=[
         stacks: ['javascript', 'sass','css', 'html']
     }
 ]
-$(document).ready(function(e){
-    anime.timeline({loop: false})
-    .add({
-    targets: '.ml3 .letter',
-    opacity: [0,1],
-    easing: "easeInOutQuad",
-    duration: 2550,
-    delay: (el, i) => 150 * (i+1)
-    })
-})
 function isInViewport(el) {
     const rect = el.getBoundingClientRect();
     return (
@@ -404,7 +461,6 @@ const abt = document.getElementById('abt');
 const prt = document.getElementById('ports');
 const contactSect = document.querySelector('.contactShow');
 const header = document.querySelector('header');
-// const message = document.querySelector('#message');
 
 document.addEventListener('scroll', function () {
     const isAboutVisible = isInViewport(abt)
@@ -413,24 +469,36 @@ document.addEventListener('scroll', function () {
     const isContactsVisible = isInViewport(contactSect)
         if(isHeaderVisible){
             $('#aboutPortItm').removeClass("active")
+            $('#aboutPortItm2').removeClass("active")
             $('#aboutNavItm').removeClass("active")
+            $('#aboutNavItm2').removeClass("active")
             $('#contactsItm').removeClass("active")
+            $('#contactsItm2').removeClass("active")
         }
         if(isAboutVisible){
             
             $('#aboutNavItm').addClass("active")
+            $('#aboutNavItm2').addClass("active")
             $('#aboutPortItm').removeClass("active")
+            $('#aboutPortItm2').removeClass("active")
             $('#contactsItm').removeClass("active")
+            $('#contactsItm2').removeClass("active")
         } 
         if(isPortsVisible){
             $('#aboutPortItm').addClass("active")
+            $('#aboutPortItm2').addClass("active")
             $('#aboutNavItm').removeClass("active")
+            $('#aboutNavItm2').removeClass("active")
             $('#contactsItm').removeClass("active")
+            $('#contactsItm2').removeClass("active")
         }
         if(isContactsVisible){
             $('#contactsItm').addClass("active")
+            $('#contactsItm2').addClass("active")
             $('#aboutPortItm').removeClass("active")
+            $('#aboutPortItm2').removeClass("active")
             $('#aboutNavItm').removeClass("active")
+            $('#aboutNavItm2').removeClass("active")
         }
 }, {
     passive: true
