@@ -188,10 +188,27 @@
                 }
             }
             .sidebarFooter{
+                background: rgba(0, 0, 0, 0.897);
                 .menus{
                     display: block;
+                    li {
+                        button {
+                            font-size: 1.9rem;
+                        }
+                    }
+                    .active {
+                        font-size: 2.1rem;
+                    }
                 }
-                background: rgba(0, 0, 0, 0.897);
+                .socialLinks {
+                    flex-direction: row;
+                    a {
+                        font-size: 2rem;
+                    }
+                }
+                p {
+                    font-size: 1.3rem;
+                }
             }
         }
     }

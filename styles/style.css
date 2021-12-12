@@ -570,6 +570,24 @@ html {
   .sideBar div .sidebarFooter .menus {
     display: block;
   }
+  .sideBar div .sidebarFooter .menus li button {
+    font-size: 1.9rem;
+  }
+  .sideBar div .sidebarFooter .menus .active {
+    font-size: 2.1rem;
+  }
+  .sideBar div .sidebarFooter .socialLinks {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .sideBar div .sidebarFooter .socialLinks a {
+    font-size: 2rem;
+  }
+  .sideBar div .sidebarFooter p {
+    font-size: 1.3rem;
+  }
 
   .sideWidthSmll {
     width: 100%;
@@ -1926,13 +1944,15 @@ section {
   .open::before {
     -webkit-transform: translateY(0);
             transform: translateY(0);
-    rotate: 45deg;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
   }
 
   .open::after {
     -webkit-transform: translateY(0);
             transform: translateY(0);
-    rotate: 135deg;
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
   }
 
   .hvrCntr:hover .hvrWndo, .hvrCntr:focus .hvrWndo {

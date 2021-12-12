@@ -275,11 +275,12 @@ section {
     }
     .open::before{
         transform: translateY(0);
-        rotate: 45deg;
+        // rotate: 45deg;
+        transform: rotate(45deg);
     }
     .open::after{
         transform: translateY(0);
-        rotate: 135deg;
+        transform: rotate(135deg);
     }
     .hvrCntr:hover .hvrWndo, .hvrCntr:focus .hvrWndo{
         opacity: 0;   

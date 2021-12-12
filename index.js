@@ -280,7 +280,7 @@ const goBackToPortfolio=()=>{
         $('#projectCollabs').html('')
         // $('.imageArray').html('')
         $('.stackArray').html('')
-    }, 100);
+    }, 500);
 }
 
 function isInViewport(el) {
