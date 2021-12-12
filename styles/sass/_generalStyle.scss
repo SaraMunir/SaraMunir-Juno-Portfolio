@@ -552,11 +552,12 @@
                 flex-direction: column;
                 justify-content: center;
                 h3{
-                    @include basicHeadingFont(1.7rem, white);
                     margin: 20px 0;
+                    font-size: 1.3em;
+                    text-transform: capitalize;
+                    color: white; 
                     span {
-                        font-size: 2.2rem;
-                        color: $accentColor; 
+                        @include basicHeadingFont(2.2rem, $accentColor);
                         text-transform: lowercase;
                     }
                 }
@@ -858,11 +859,11 @@
                 .imgSettings {
                     position: absolute;
                     z-index: 20;
-                    height: 70%;
+                    height: 66%;
                     object-position: top;
                 }
                 .upperImages, .focusImg, .projectImgStitches, .projectImgsSun, .movieManixImg, .gameOfThrns{
-                    height: 50vh;
+                    height: 43vh;
                 }
                 .movieManixImg, .gameOfThrns{
                     width: 92%;
@@ -876,7 +877,7 @@
                     margin: 20px;
                     .imgTop {
                         cursor: pointer;
-                        top: 150px;
+                        top: 135px;
                         left: 40px;
                         right: 40px;
                         z-index: 40;
