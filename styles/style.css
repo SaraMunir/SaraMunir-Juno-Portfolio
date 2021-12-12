@@ -2,7 +2,7 @@
   background: #161616e0;
   position: fixed;
   margin: 0 auto;
-  z-index: 60;
+  z-index: 200;
   top: 0;
   bottom: 0;
   left: 0;
@@ -115,7 +115,7 @@
 }
 @media (max-width: 650px) {
   .modal {
-    z-index: 100;
+    z-index: 200;
   }
   .modal .allImages {
     display: -webkit-box;
@@ -1001,7 +1001,7 @@ html {
 .mainContent .portfolioDetail .detailWindow {
   position: fixed;
   top: 0;
-  z-index: 70;
+  z-index: 80;
   background-image: url("../assets/blackStripedBackgrounLighter.jpg");
 }
 .mainContent .portfolioDetail .detailWindow .projectText {
@@ -1795,8 +1795,7 @@ section {
   height: 80px;
   top: 20px;
   left: 20px;
-  z-index: 500;
-  z-index: 55;
+  z-index: 75;
   cursor: pointer;
 }
 .menuBtn .hamBrgr {

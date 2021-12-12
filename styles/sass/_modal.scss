@@ -2,7 +2,7 @@
     background: #161616e0;
     position: fixed;
     margin: 0 auto;
-    z-index: 60;
+    z-index: 200;
     top: 0;
     bottom: 0;
     left: 0;
@@ -93,7 +93,7 @@
 
 @media (max-width: 650px){
     .modal{
-        z-index: 100;
+        z-index: 200;
         .allImages {
             display: flex;
             flex-direction: row;
