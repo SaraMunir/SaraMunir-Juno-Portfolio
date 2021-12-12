@@ -1612,6 +1612,9 @@ html {
   .mainContent header div img {
     height: 23vh;
   }
+  .mainContent .portfolio .portfolios .upperImages, .mainContent .portfolio .portfolios .focusImg, .mainContent .portfolio .portfolios .projectImgStitches, .mainContent .portfolio .portfolios .projectImgsSun, .mainContent .portfolio .portfolios .movieManixImg, .mainContent .portfolio .portfolios .gameOfThrns {
+    height: 33vh;
+  }
   .mainContent .portfolio .portfolios .gridItm3 {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;

@@ -848,6 +848,9 @@
         }
         .portfolio{
             .portfolios{
+                .upperImages, .focusImg, .projectImgStitches, .projectImgsSun, .movieManixImg, .gameOfThrns{
+                    height: 33vh;
+                }
                 .gridItm3{
                     flex-direction: column;
                     grid-column-start: 1;
