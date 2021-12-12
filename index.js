@@ -2,7 +2,7 @@ window.onscroll = function() {scrollingEffect()};
 const mediaQuery = window.matchMedia('(min-width: 851px)')
 const mediaQuery2 = window.matchMedia('(max-width: 850px)')
 const mediaQueryMobile = window.matchMedia('(max-width: 650px)')
-
+let isDetailWindowOn = false
 $(document).ready(function(e){
     anime.timeline({loop: false})
     .add({
@@ -19,22 +19,10 @@ function handleTabletChange(e) {
         $(`#sideBar`).css('left', '-100%');
     }else{
         $(`#sideBar`).css('left', '0');
-
     }
 }
-// function handleTabletChange2(e) {
-//     // Check if the media query is true
-//     if (e.matches) {
-//       // Then log the following message to the console
-//       $('#aboutNavItm').html('<i class="fas fa-user-circle"></i>')
-//       $('#aboutPortItm').html('<i class="fas fa-th"></i>')
-//       $('#contactsItm').html('<i class="far fa-address-book"></i>')
-//     }
-// }
 mediaQueryMobile.addListener(handleTabletChange)
 handleTabletChange(mediaQueryMobile)
-// mediaQuery2.addListener(handleTabletChange2)
-// handleTabletChange(mediaQuery2)
 
 const scrollingEffect=()=> {
     if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
@@ -79,6 +67,15 @@ const showMenu=(id)=>{
 }
 
 const showContent=(type)=>{
+    if(isDetailWindowOn===true) {
+        $('#portfolioDetail').hide( "slow" )
+        $('#portfolio').show( "slow" )
+        $('#projectName').text('')
+        $('#projectDescription').html('')
+        $('#projectImgs').html('')
+        $('#projectCollabs').html('')
+        $('.stackArray').html('')
+    }
     if(type=== 'aboutMe'){
         $('html, body').animate({
             scrollTop: $("#about").offset().top
@@ -118,6 +115,7 @@ const showContent=(type)=>{
         $(`#sideBar`).css('left', '-100%');
         menu = false
     }
+    isDetailWindowOn = false
 }
 const openModal = (idx, imgIdx)=>{
     $('#modal').show( "slow" )
@@ -172,12 +170,13 @@ const prevImg =(idx, imgIdx)=>{
         renderModalImg(idx , projects[idx].images.length-1  )
         return
     }
-
 }
 const closeModal = ()=>{
     $('#modal').hide( "slow" )
 }
 const showDetail=async(id)=>{
+    isDetailWindowOn = true
+
     $('#portfolio').hide( "slow" )
     $('#portfolioDetail').show( "slow" )
     $('#projectName').text('')
@@ -268,6 +267,7 @@ const showDetail=async(id)=>{
     }
 }
 const goBackToPortfolio=()=>{
+    isDetailWindowOn = false
     $('#portfolioDetail').hide( "slow" )
     $('#portfolio').show( "slow" )
     $('html, body').animate({

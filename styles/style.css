@@ -804,7 +804,7 @@ html {
   color: white;
 }
 .mainContent .portfolio .portfolioTxt {
-  padding: 30px;
+  padding: 15px 30px 17px 30px;
   width: 100%;
   margin-left: 0 auto;
 }
@@ -926,11 +926,11 @@ html {
   text-align: center;
 }
 .mainContent .portfolio .portfolios .projectCntr .imgTop .content img {
-  width: 60px;
-  height: 60px;
-  margin: 10px auto;
+  width: 50px;
+  height: 50px;
+  margin: 5px auto;
+  padding: 5px;
   cursor: pointer;
-  padding: 10px;
 }
 .mainContent .portfolio .portfolios .projectCntr .imgTop .content img:hover {
   background: rgba(255, 255, 255, 0.301);
@@ -941,8 +941,8 @@ html {
 .mainContent .portfolio .portfolios .projectCntr .imgTop .btnCntr button {
   width: 80%;
   border: none;
-  padding: 20px;
-  margin: 20px auto;
+  padding: 18px;
+  margin: 10px auto;
   text-transform: uppercase;
   color: #f12365;
   -webkit-transition: 0.4s;
@@ -957,13 +957,14 @@ html {
   color: #ffffff;
   font-family: "Philosopher", sans-serif;
   text-transform: capitalize;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   margin: 10px 0;
 }
 .mainContent .portfolio .portfolios .projectCntr .imgTop p {
   color: white;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   text-transform: capitalize;
+  margin: 0 auto;
 }
 .mainContent .portfolio .portfolios .projectCntr .opacity {
   opacity: 0;
@@ -1001,10 +1002,10 @@ html {
   height: 40vh;
 }
 .mainContent .portfolio .portfolios .movieManixImg {
-  height: 54vh;
+  height: 50vh;
 }
 .mainContent .portfolio .portfolios .gameOfThrns {
-  height: 30vh;
+  height: 34vh;
 }
 .mainContent .portfolioDetail {
   position: relative;
