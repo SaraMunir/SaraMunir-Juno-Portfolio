@@ -155,7 +155,6 @@
                 flex-wrap: wrap;
                 justify-content: space-between;
                 align-items: center;
-
             }
         }
     }
@@ -835,7 +834,7 @@
         }
         header {
             .heroText{
-                min-height: 77vh;
+                min-height: 70vh;
                 padding-left: 30px;
                 padding-top: 86px;
                 padding: 33px;
@@ -847,15 +846,57 @@
                 }
             }
         }
+        .about {
+            aside {
+                .iconsArr {
+                    padding: 10px 0;
+                }
+            }
+        }
         .portfolio{
             .portfolios{
+                .imgSettings {
+                    position: absolute;
+                    z-index: 20;
+                    height: 70%;
+                    object-position: top;
+                }
                 .upperImages, .focusImg, .projectImgStitches, .projectImgsSun, .movieManixImg, .gameOfThrns{
-                    height: 33vh;
+                    height: 50vh;
+                }
+                .movieManixImg, .gameOfThrns{
+                    width: 92%;
                 }
                 .gridItm3{
                     flex-direction: column;
                     grid-column-start: 1;
                     grid-column-end: 1;
+                }
+                .projectCntr{
+                    margin: 20px;
+                    .imgTop {
+                        cursor: pointer;
+                        top: 150px;
+                        left: 40px;
+                        right: 40px;
+                        z-index: 40;
+                        height: 27vh;
+                        background-image: linear-gradient(45deg, #f12364e0, #c67e95e8);
+                        .content {
+                            h3 {
+                                font-size: 1.5rem;
+                            }
+                        }
+                        p {
+                            font-size: 1rem;
+                        }
+                    }
+                    .opacity {
+                        opacity: 1;
+                    }
+                    .mainStack {
+                        z-index: 50;
+                    }
                 }
             }
         }

@@ -1604,7 +1604,7 @@ html {
     right: 31px;
   }
   .mainContent header .heroText {
-    min-height: 77vh;
+    min-height: 70vh;
     padding-left: 30px;
     padding-top: 86px;
     padding: 33px;
@@ -1613,8 +1613,21 @@ html {
   .mainContent header div img {
     height: 23vh;
   }
+  .mainContent .about aside .iconsArr {
+    padding: 10px 0;
+  }
+  .mainContent .portfolio .portfolios .imgSettings {
+    position: absolute;
+    z-index: 20;
+    height: 70%;
+    -o-object-position: top;
+       object-position: top;
+  }
   .mainContent .portfolio .portfolios .upperImages, .mainContent .portfolio .portfolios .focusImg, .mainContent .portfolio .portfolios .projectImgStitches, .mainContent .portfolio .portfolios .projectImgsSun, .mainContent .portfolio .portfolios .movieManixImg, .mainContent .portfolio .portfolios .gameOfThrns {
-    height: 33vh;
+    height: 50vh;
+  }
+  .mainContent .portfolio .portfolios .movieManixImg, .mainContent .portfolio .portfolios .gameOfThrns {
+    width: 92%;
   }
   .mainContent .portfolio .portfolios .gridItm3 {
     -webkit-box-orient: vertical;
@@ -1623,6 +1636,30 @@ html {
             flex-direction: column;
     grid-column-start: 1;
     grid-column-end: 1;
+  }
+  .mainContent .portfolio .portfolios .projectCntr {
+    margin: 20px;
+  }
+  .mainContent .portfolio .portfolios .projectCntr .imgTop {
+    cursor: pointer;
+    top: 150px;
+    left: 40px;
+    right: 40px;
+    z-index: 40;
+    height: 27vh;
+    background-image: linear-gradient(45deg, #f12364e0, #c67e95e8);
+  }
+  .mainContent .portfolio .portfolios .projectCntr .imgTop .content h3 {
+    font-size: 1.5rem;
+  }
+  .mainContent .portfolio .portfolios .projectCntr .imgTop p {
+    font-size: 1rem;
+  }
+  .mainContent .portfolio .portfolios .projectCntr .opacity {
+    opacity: 1;
+  }
+  .mainContent .portfolio .portfolios .projectCntr .mainStack {
+    z-index: 50;
   }
   .mainContent .portfolioDetail .detailWindow {
     -webkit-box-orient: vertical;
