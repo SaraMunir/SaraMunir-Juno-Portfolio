@@ -68,7 +68,7 @@
           align-items: center;
 }
 .modal .allImages img {
-  width: 150px;
+  min-width: 150px;
   height: 100px;
   -o-object-fit: cover;
      object-fit: cover;
@@ -111,6 +111,25 @@
     padding: 20px;
     cursor: pointer;
     text-align: center;
+  }
+}
+@media (max-width: 650px) {
+  .modal {
+    z-index: 100;
+  }
+  .modal .allImages {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .modal .allImages img {
+    min-width: auto;
+    height: 95px;
+    margin: 10px 3px;
   }
 }
 html {
@@ -374,9 +393,13 @@ html {
 }
 .sideBar div .biggerHeight {
   height: 70vh;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 .sideBar div .smallerHeight {
   height: 40vh;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 .sideBar div .profileImg {
   -webkit-transition: 0.5;
@@ -392,13 +415,23 @@ html {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: end;
+  height: 100%;
 }
 .sideBar div .profileImg img {
   -o-object-fit: contain;
      object-fit: contain;
 }
-.sideBar div .sidebarFooter {
+.sideBar div .tetTest {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.sideBar div .biggerFooter {
+  height: 60vh;
+}
+.sideBar div .smallerFooter {
   height: 30vh;
+}
+.sideBar div .sidebarFooter {
   padding: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -412,6 +445,8 @@ html {
           justify-content: space-between;
   text-align: center;
   background: rgba(0, 0, 0, 0.377);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 .sideBar div .sidebarFooter .menuCntr {
   display: -webkit-box;
@@ -480,12 +515,26 @@ html {
   color: #f12365;
 }
 
+@media (max-width: 1050px) {
+  .sideBar div .sidebarFooter .menus li button {
+    font-size: 1.3rem;
+  }
+  .sideBar div .sidebarFooter .menus .active {
+    font-size: 1.7rem;
+  }
+}
 @media (max-width: 850px) {
+  .sideBar div .smallerHeight {
+    height: 25vh;
+  }
+  .sideBar div .biggerFooter {
+    height: 75vh;
+  }
   .sideBar div .sidebarFooter .socialLinks {
-    -webkit-box-orient: horizontal;
+    -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+        -ms-flex-direction: column;
+            flex-direction: column;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
@@ -496,14 +545,46 @@ html {
     margin: 5px;
   }
 }
+@media (max-width: 650px) {
+  .sideBar {
+    -webkit-transition: 0.8s ease-in-out;
+    transition: 0.8s ease-in-out;
+    position: fixed;
+    z-index: 65;
+    width: 100%;
+    left: -100%;
+  }
+  .sideBar div .biggerHeight {
+    height: 25vh;
+  }
+  .sideBar div .smallerFooter {
+    height: 75vh;
+  }
+  .sideBar div .profileImg img {
+    width: 36%;
+    margin-left: auto;
+  }
+  .sideBar div .sidebarFooter {
+    background: rgba(0, 0, 0, 0.897);
+  }
+  .sideBar div .sidebarFooter .menus {
+    display: block;
+  }
+
+  .sideWidthSmll {
+    width: 100%;
+  }
+}
 .mainContent {
   width: 82%;
   min-height: 200vh;
   position: relative;
 }
 .mainContent .circleIcon {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
+  -o-object-fit: contain;
+     object-fit: contain;
   position: fixed;
   top: 40px;
   right: 40px;
@@ -840,15 +921,15 @@ html {
   width: 100%;
 }
 .mainContent .portfolio .portfolios .projectCntr .imgTop .btnCntr button {
-  width: 50%;
+  width: 80%;
   border: none;
   padding: 20px;
-  margin: 0 auto;
+  margin: 20px auto;
   text-transform: uppercase;
   color: #f12365;
-  cursor: pointer;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  cursor: pointer;
 }
 .mainContent .portfolio .portfolios .projectCntr .imgTop .btnCntr button:focus, .mainContent .portfolio .portfolios .projectCntr .imgTop .btnCntr button:hover {
   background-color: #f12365;
@@ -858,8 +939,13 @@ html {
   color: #ffffff;
   font-family: "Philosopher", sans-serif;
   text-transform: capitalize;
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   margin: 10px 0;
+}
+.mainContent .portfolio .portfolios .projectCntr .imgTop p {
+  color: white;
+  font-size: 1.3rem;
+  text-transform: capitalize;
 }
 .mainContent .portfolio .portfolios .projectCntr .opacity {
   opacity: 0;
@@ -915,7 +1001,7 @@ html {
 .mainContent .portfolioDetail .detailWindow {
   position: fixed;
   top: 0;
-  z-index: 20;
+  z-index: 70;
   background-image: url("../assets/blackStripedBackgrounLighter.jpg");
 }
 .mainContent .portfolioDetail .detailWindow .projectText {
@@ -1079,8 +1165,8 @@ html {
   cursor: pointer;
 }
 .mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .flexRow .projectCollabImg .collabCntr .collabWindwo {
-  min-width: 150px;
-  height: 50px;
+  width: 0;
+  height: 0;
   border-radius: 10px;
   position: absolute;
   right: 70px;
@@ -1108,6 +1194,9 @@ html {
 }
 .mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .flexRow .projectCollabImg .collabCntr:hover .collabWindwo, .mainContent .portfolioDetail .detailWindow .projectText .projectSubContent .flexRow .projectCollabImg .collabCntr:focus .collabWindwo {
   opacity: 1;
+  min-width: 150px;
+  height: 50px;
+  overflow: auto;
 }
 .mainContent .portfolioDetail .detailWindow .projectText:hover {
   overflow-y: auto;
@@ -1209,12 +1298,14 @@ html {
   color: white;
   font-family: "Philosopher", sans-serif;
   text-transform: capitalize;
-  font-size: 2.3rem;
+  font-size: 1.7rem;
   margin: 10px 0;
   margin: 20px 0;
 }
 .mainContent .contacts .contactTxt .contactMain h3 span {
-  color: white;
+  font-size: 2.2rem;
+  color: #f12365;
+  text-transform: lowercase;
 }
 .mainContent .contacts .contactTxt .contactMain form {
   width: 80%;
@@ -1271,6 +1362,38 @@ html {
 }
 
 @media (max-width: 1050px) {
+  .mainContent .about {
+    padding: 50px 30px;
+  }
+  .mainContent .about .aboutText {
+    width: 69%;
+    padding: 6px;
+  }
+  .mainContent .about .aboutText .aboutMain {
+    width: 90%;
+  }
+  .mainContent .about aside {
+    width: 30%;
+    padding: 70px 30px;
+    min-height: 174vh;
+  }
+  .mainContent .about aside .iconsArr {
+    padding: 4px;
+  }
+  .mainContent .about aside i {
+    font-size: 2.3rem;
+    margin: 6px;
+  }
+  .mainContent .about aside img {
+    width: 39px;
+    margin: 6px;
+  }
+  .mainContent .about aside h3 {
+    font-size: 2.2rem;
+  }
+  .mainContent .portfolio .portfolioTxt {
+    padding: 15px 30px;
+  }
   .mainContent .portfolio .portfolios .movieManixImg {
     height: 49vh;
   }
@@ -1296,6 +1419,9 @@ html {
     font-size: 0.9rem;
     padding: 12px;
   }
+  .mainContent .contacts .contactTxt {
+    width: 90%;
+  }
 }
 @media (max-width: 850px) {
   .mainContent header .heroText {
@@ -1307,6 +1433,7 @@ html {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    padding: 0;
   }
   .mainContent .about .aboutText {
     width: 100%;
@@ -1426,6 +1553,11 @@ html {
     width: 100%;
     margin: 0 auto;
   }
+  .mainContent .portfolioDetail .detailWindow .projectText .projectTxtCntr .cloProBtnCntr {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+  }
   .mainContent .portfolioDetail .detailWindow .projectText .projectMain h3 {
     color: #f12365;
     font-family: "Philosopher", sans-serif;
@@ -1440,16 +1572,55 @@ html {
     padding: 15px 58px;
     width: 100%;
   }
-  .mainContent .contacts .contactTxt .contactMain h3 {
-    color: #ffffff;
-    font-family: "Philosopher", sans-serif;
-    text-transform: capitalize;
-    font-size: 2rem;
-    margin: 10px 0;
-    margin: 16px 0;
-  }
   .mainContent .contacts .contactTxt .contactMain form {
     width: 100%;
+  }
+}
+@media (max-width: 650px) {
+  .mainContent {
+    width: 100%;
+  }
+  .mainContent .circleIcon {
+    top: 20px;
+    right: 31px;
+  }
+  .mainContent header .heroText {
+    min-height: 77vh;
+    padding-left: 30px;
+    padding-top: 86px;
+    padding: 33px;
+    text-align: center;
+  }
+  .mainContent header div img {
+    height: 23vh;
+  }
+  .mainContent .portfolio .portfolios .gridItm3 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    grid-column-start: 1;
+    grid-column-end: 1;
+  }
+  .mainContent .portfolioDetail .detailWindow {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .mainContent .portfolioDetail .detailWindow .projectText {
+    width: 100%;
+    height: 85vh;
+  }
+  .mainContent .portfolioDetail aside {
+    width: 100%;
+  }
+  .mainContent .portfolioDetail aside .projectImgs2 {
+    -ms-flex-wrap: initial;
+        flex-wrap: initial;
+  }
+  .mainContent .portfolioDetail aside a img {
+    height: 15vh;
   }
 }
 html {
@@ -1617,19 +1788,21 @@ section {
 }
 
 .menuBtn {
+  display: none;
   position: fixed;
   padding: 20px;
   width: 80px;
   height: 80px;
   top: 20px;
   left: 20px;
-  z-index: 200;
+  z-index: 500;
+  z-index: 55;
   cursor: pointer;
 }
 .menuBtn .hamBrgr {
   width: 35px;
   height: 3px;
-  background: white;
+  background: #f12365;
   border-radius: 5px;
   -webkit-transition: 0.5s ease all;
   transition: 0.5s ease all;
@@ -1639,18 +1812,18 @@ section {
   width: 30px;
   height: 3px;
   position: absolute;
-  background: #ffffff91;
+  background: #f12364c7;
   border-radius: 5px;
   -webkit-transition: 0.5s ease all;
   transition: 0.5s ease all;
 }
 .menuBtn .hamBrgr::before {
-  -webkit-transform: translateY(-12px);
-          transform: translateY(-12px);
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
 }
 .menuBtn .hamBrgr::after {
-  -webkit-transform: translateY(12px);
-          transform: translateY(12px);
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
 }
 
 .menuBtn:hover .hamBrgr {
@@ -1677,9 +1850,9 @@ section {
   margin: 0 auto;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
   .gridRow {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1.4fr 1fr;
   }
 }
 @media (max-width: 850px) {
@@ -1703,5 +1876,69 @@ section {
 
   .notResponsive {
     display: none;
+  }
+}
+@media (max-width: 650px) {
+  .notResponsive {
+    display: block;
+  }
+
+  .responsive {
+    display: none;
+  }
+
+  .gridRow {
+    grid-template-columns: 1fr;
+  }
+
+  .buttons2 a, .buttons2 .buttons2 {
+    width: 66%;
+    display: block;
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .buttons a, .buttons button {
+    margin-bottom: 17px;
+    text-align: center;
+    min-width: 56%;
+    margin: 15px auto;
+  }
+
+  .menuBtn {
+    display: block;
+  }
+
+  .open::after, .open::before {
+    content: "";
+    width: 39px;
+    height: 3px;
+    position: absolute;
+    background: #ffffffd2;
+    border-radius: 5px;
+    -webkit-transition: 0.5s ease all;
+    transition: 0.5s ease all;
+  }
+
+  .open::after, .open::before {
+    width: 39px;
+  }
+
+  .open::before {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    rotate: 45deg;
+  }
+
+  .open::after {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    rotate: 135deg;
+  }
+
+  .hvrCntr:hover .hvrWndo, .hvrCntr:focus .hvrWndo {
+    opacity: 0;
+    min-height: 0;
+    min-width: 0;
   }
 }

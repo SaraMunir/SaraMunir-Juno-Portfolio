@@ -1,6 +1,7 @@
 window.onscroll = function() {scrollingEffect()};
 const mediaQuery = window.matchMedia('(min-width: 851px)')
 const mediaQuery2 = window.matchMedia('(max-width: 850px)')
+const mediaQueryMobile = window.matchMedia('(max-width: 650px)')
 
 $(document).ready(function(e){
     anime.timeline({loop: false})
@@ -11,28 +12,16 @@ $(document).ready(function(e){
     duration: 2550,
     delay: (el, i) => 150 * (i+1)
     })
-    // if(mediaQuery2.matches) {
-    //     // $('#aboutNavItm').html('<i class="far fa-address-card"></i>')
-    //     $('#aboutNavItm').html('<i class="fas fa-user-circle"></i>')
-    //     $('#aboutPortItm').html('<i class="fas fa-th"></i>')
-    //     $('#contactsItm').html('<i class="far fa-address-book"></i>')
-    // }
-    // if(mediaQuery.matches) {
-    //     // $('#aboutNavItm').html('<i class="far fa-address-card"></i>')
-    //     $('#aboutNavItm').html('About Me')
-    //     $('#aboutPortItm').html('Portfolio')
-    //     $('#contactsItm').html('Contact')
-    // }
 })
-// function handleTabletChange(e) {
-//     // Check if the media query is true
-//     if (e.matches) {
-//       // Then log the following message to the console
-//         $('#aboutNavItm').html('About Me')
-//         $('#aboutPortItm').html('Portfolio')
-//         $('#contactsItm').html('Contact')
-//     }
-// }
+function handleTabletChange(e) {
+    // Check if the media query is true
+    if (e.matches) {
+        $(`#sideBar`).css('left', '-100%');
+    }else{
+        $(`#sideBar`).css('left', '0');
+
+    }
+}
 // function handleTabletChange2(e) {
 //     // Check if the media query is true
 //     if (e.matches) {
@@ -42,8 +31,8 @@ $(document).ready(function(e){
 //       $('#contactsItm').html('<i class="far fa-address-book"></i>')
 //     }
 // }
-// mediaQuery.addListener(handleTabletChange)
-// handleTabletChange(mediaQuery)
+mediaQueryMobile.addListener(handleTabletChange)
+handleTabletChange(mediaQueryMobile)
 // mediaQuery2.addListener(handleTabletChange2)
 // handleTabletChange(mediaQuery2)
 
@@ -51,45 +40,15 @@ const scrollingEffect=()=> {
     if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
         $('#sideBar').addClass( "sideWidthSmll" )
         $('#sideBar').removeClass( "sideWidthBig" )
-        // $('#profImgCntr').removeClass( "biggerHeight" )
-        // $('#profImgCntr').addClass( "smallerHeight" )
-        if (mediaQuery.matches) {
-            // Then trigger an alert
-            $('#profImgCntr').animate({
-                height: "40vh"
-            }, 1000);
-    
-            $('.sidebarFooter').animate({
-                minHeight: "60vh"
-            }, 1000);
-            
-            $('.menuCntr').animate({
-                minHeight: "40vh"
-            }, 1000);
-            setInterval(() => {
-                $(".menus").fadeIn(1000)
-                
-            }, 1000);
-        }
-        if (mediaQuery2.matches) {
-            // Then trigger an alert
-            $('#profImgCntr').animate({
-                height: "30vh"
-            }, 1000);
-    
-            $('.sidebarFooter').animate({
-                minHeight: "70vh"
-            }, 1000);
-            
-            $('.menuCntr').animate({
-                minHeight: "30vh"
-            }, 1000);
-            setInterval(() => {
-                $(".menus").fadeIn(1000)
-                
-            }, 1000);
-            $('.socialLinks').css("flex-direction","column")
-        }
+        $('#testProImg').removeClass( "biggerHeight" )
+        $('#testProImg').addClass( "smallerHeight" )
+        $('.sidebarFooter').addClass( "biggerFooter" )
+        $('.sidebarFooter').removeClass( "smallerFooter" )
+        setInterval(() => {
+            $(".menus").fadeIn(1000)
+        }, 1000);
+
+
     } else {
     }
     if (document.body.scrollTop > 1800 || document.documentElement.scrollTop > 1800) {
@@ -101,6 +60,23 @@ const scrollingEffect=()=> {
 }
 var textWrapper = document.querySelector('.ml3');
 textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+let menu = false
+let sideMenuMobile 
+const showMenu=(id)=>{
+    console.log(id)
+    sideMenuMobile=id
+    if(menu === false){
+        $('#hamBrgr').addClass('open');
+        $(`#hamBrgr`).removeClass('hamBrgr');
+        $(`#sideBar`).css('left', '0');
+        menu = true
+    }else {
+        $(`#hamBrgr`).addClass('hamBrgr');
+        $(`#hamBrgr`).removeClass('open');
+        $(`#sideBar`).css('left', '-100%');
+        menu = false
+    }
+}
 
 const showContent=(type)=>{
     if(type=== 'aboutMe'){
@@ -136,6 +112,12 @@ const showContent=(type)=>{
         $('#contactsItm').addClass("active")
         $('#contactsItm2').addClass("active")
     }
+    if(menu===true){
+        $(`#hamBrgr`).addClass('hamBrgr');
+        $(`#hamBrgr`).removeClass('open');
+        $(`#sideBar`).css('left', '-100%');
+        menu = false
+    }
 }
 const openModal = (idx, imgIdx)=>{
     $('#modal').show( "slow" )
@@ -144,7 +126,6 @@ const openModal = (idx, imgIdx)=>{
 const focusThisImg = (idx, imgIdx)=>{
     renderModalImg(idx, imgIdx)
 }
-
 const renderModalImg =(idx, imgIdx)=>{
     $('#focusedImgs').html('')
     $('#focusedImgs').html(`
@@ -219,6 +200,13 @@ const showDetail=async(id)=>{
         </a>
         `)
     })
+    console.log(projects[id].website)
+    console.log(projects[id].github)
+
+    $('#detailLinks').html(`
+        <a href="${projects[id].website}">Live <i class="fas fa-wifi"></i></a href="#">
+        <a href="${projects[id].github}">Git <i class="fab fa-github"></i></a href="#">
+    `);
     projects[id].stacks.forEach(stack=>{
         if(stack === 'REACT'){
             $('.stackArray').append(`
@@ -282,27 +270,80 @@ const showDetail=async(id)=>{
 const goBackToPortfolio=()=>{
     $('#portfolioDetail').hide( "slow" )
     $('#portfolio').show( "slow" )
+    $('html, body').animate({
+        scrollTop: $("#portfolio").offset().top
+    }, 100);
     setTimeout(() => {
-        
         $('#projectName').text('')
         $('#projectDescription').html('')
         $('#projectImgs').html('')
         $('#projectCollabs').html('')
         // $('.imageArray').html('')
         $('.stackArray').html('')
-    }, timeout);
-
+    }, 100);
 }
+
+function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+const abt = document.getElementById('abt');
+const prt = document.getElementById('ports');
+const contactSect = document.querySelector('.contactShow');
+const header = document.querySelector('header');
+
+document.addEventListener('scroll', function () {
+    const isAboutVisible = isInViewport(abt)
+    const isPortsVisible = isInViewport(prt)
+    const isHeaderVisible = isInViewport(header)
+    const isContactsVisible = isInViewport(contactSect)
+        if(isHeaderVisible){
+            $('#aboutPortItm').removeClass("active")
+            $('#aboutPortItm2').removeClass("active")
+            $('#aboutNavItm').removeClass("active")
+            $('#aboutNavItm2').removeClass("active")
+            $('#contactsItm').removeClass("active")
+            $('#contactsItm2').removeClass("active")
+        }
+        if(isAboutVisible){
+            
+            $('#aboutNavItm').addClass("active")
+            $('#aboutNavItm2').addClass("active")
+            $('#aboutPortItm').removeClass("active")
+            $('#aboutPortItm2').removeClass("active")
+            $('#contactsItm').removeClass("active")
+            $('#contactsItm2').removeClass("active")
+        } 
+        if(isPortsVisible){
+            $('#aboutPortItm').addClass("active")
+            $('#aboutPortItm2').addClass("active")
+            $('#aboutNavItm').removeClass("active")
+            $('#aboutNavItm2').removeClass("active")
+            $('#contactsItm').removeClass("active")
+            $('#contactsItm2').removeClass("active")
+        }
+        if(isContactsVisible){
+            $('#contactsItm').addClass("active")
+            $('#contactsItm2').addClass("active")
+            $('#aboutPortItm').removeClass("active")
+            $('#aboutPortItm2').removeClass("active")
+            $('#aboutNavItm').removeClass("active")
+            $('#aboutNavItm2').removeClass("active")
+        }
+}, {
+    passive: true
+});
+
 const projects=[
     {
         id: 0,
         name: 'Sun Run',
         description: 'Sun Run is a fitness app that allows users to schedule their runs based on sunlight. User can select if they want to hit sunrise or sunset and plan their runs accordingly. Based on the users selection the app suggests when they should start their run to hit sunrise or sunset. / This agency-style application was built on REACT, in a group project assigned by Juno College as part of their curriculum. The main goal of the project was to mimick the agency environment working in small groups to build web applications for clients. ',
-        requirements: [
-            "Using the Sunrise/Sunset API - https://sunrise-sunset.org/api - suggest the time the user should leave for their run in order to hit sunrise or be back before sunset",
-            " Users should be able to enter the date of their run and choose whether they want to start the run by sunrise or finish the run before the sun sets",
-            ""
-        ],
         collaborators: [
             {
                 name: 'Adrienne Lee',
@@ -355,11 +396,7 @@ const projects=[
         id: 2,
         name: 'Thought Escape',
         description: "A social media application based off facebook/twitter that allows a user to share their thoughts. Features include searching for other users on the platform, follow them, comment on their posts and like thoughts they or others have shared. / Goal of the project was to showcase an understanding of core React concepts (ie. state, props, components), working with external or third-party data sources (ie. APIs/Firebase), error handling and UI design. Some of the requirements included to successfully convey what the app does as well as being dynamic based on user interaction",
-        requirements: [
-            "It is clear to the user what the app does and results are displayed legibly",
-            "App is dynamic based on user interaction (e.g. drop down menu, search field)", 
-            "App and interactions are accessible"
-        ],
+        requirements: [],
         collaborators: [],
         createdOn: '',
         website: 'https://thought-scape.herokuapp.com/',
@@ -446,58 +483,3 @@ const projects=[
         stacks: ['javascript', 'sass','css', 'html']
     }
 ]
-function isInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
-const abt = document.getElementById('abt');
-const prt = document.getElementById('ports');
-const contactSect = document.querySelector('.contactShow');
-const header = document.querySelector('header');
-
-document.addEventListener('scroll', function () {
-    const isAboutVisible = isInViewport(abt)
-    const isPortsVisible = isInViewport(prt)
-    const isHeaderVisible = isInViewport(header)
-    const isContactsVisible = isInViewport(contactSect)
-        if(isHeaderVisible){
-            $('#aboutPortItm').removeClass("active")
-            $('#aboutPortItm2').removeClass("active")
-            $('#aboutNavItm').removeClass("active")
-            $('#aboutNavItm2').removeClass("active")
-            $('#contactsItm').removeClass("active")
-            $('#contactsItm2').removeClass("active")
-        }
-        if(isAboutVisible){
-            
-            $('#aboutNavItm').addClass("active")
-            $('#aboutNavItm2').addClass("active")
-            $('#aboutPortItm').removeClass("active")
-            $('#aboutPortItm2').removeClass("active")
-            $('#contactsItm').removeClass("active")
-            $('#contactsItm2').removeClass("active")
-        } 
-        if(isPortsVisible){
-            $('#aboutPortItm').addClass("active")
-            $('#aboutPortItm2').addClass("active")
-            $('#aboutNavItm').removeClass("active")
-            $('#aboutNavItm2').removeClass("active")
-            $('#contactsItm').removeClass("active")
-            $('#contactsItm2').removeClass("active")
-        }
-        if(isContactsVisible){
-            $('#contactsItm').addClass("active")
-            $('#contactsItm2').addClass("active")
-            $('#aboutPortItm').removeClass("active")
-            $('#aboutPortItm2').removeClass("active")
-            $('#aboutNavItm').removeClass("active")
-            $('#aboutNavItm2').removeClass("active")
-        }
-}, {
-    passive: true
-});

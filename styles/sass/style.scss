@@ -153,18 +153,20 @@ section {
 }
 
 .menuBtn{
+    display: none;
     position: fixed;
     padding: 20px;
     width: 80px;
     height: 80px;
     top: 20px;
     left: 20px;
-    z-index: 200;
+    z-index: 500;
+    z-index: 55;
     cursor: pointer;
     .hamBrgr{
         width: 35px;
         height: 3px;
-        background: white;
+        background: #f12365;
         border-radius: 5px;
         transition: .5s ease all;
     }
@@ -173,15 +175,15 @@ section {
         width: 30px;
         height: 3px;
         position: absolute;
-        background: #ffffff91;
+        background: #f12364c7;
         border-radius: 5px;
         transition: .5s ease all;
     }
     .hamBrgr::before{
-        transform: translateY(-12px);
+        transform: translateY(-10px);
     }
     .hamBrgr::after{
-        transform: translateY(12px);
+        transform: translateY(10px);
     }
 }
 .menuBtn:hover .hamBrgr {
@@ -204,13 +206,15 @@ section {
     margin: 0 auto;
 }
 
-@media (max-width: 900px){
+
+@media (max-width: 1050px){
 
     .gridRow{
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1.4fr 1fr;
 
     }
-     }
+}
+
 
 @media (max-width: 850px){
     .buttons {
@@ -224,7 +228,6 @@ section {
         opacity: 1;   
         min-height: 50px;
         min-width: 150px;
-    
     }
     .responsive{
         display: block;
@@ -232,5 +235,57 @@ section {
     .notResponsive{
         display: none;
     }
-        
+}
+
+@media (max-width: 650px){
+    .notResponsive{
+        display: block;
+    }
+    .responsive{
+        display: none;
+    }
+    .gridRow{
+        grid-template-columns: 1fr;
+    }
+    .buttons2 a, .buttons2 .buttons2 {
+        width: 66%;
+        display: block;
+        text-align: center;
+        margin: 20px 0;
+    }
+    .buttons a, .buttons button {
+        margin-bottom: 17px;
+        text-align: center;
+        min-width: 56%;
+        margin: 15px auto;
+    }
+    .menuBtn{
+        display: block;
+    }
+    .open::after, .open::before {
+        content: '';
+        width: 39px;
+        height: 3px;
+        position: absolute;
+        background: #ffffffd2;
+        border-radius: 5px;
+        transition: .5s ease all;
+    }
+    .open::after, .open::before{
+        width: 39px;
+    }
+    .open::before{
+        transform: translateY(0);
+        rotate: 45deg;
+    }
+    .open::after{
+        transform: translateY(0);
+        rotate: 135deg;
+    }
+    .hvrCntr:hover .hvrWndo, .hvrCntr:focus .hvrWndo{
+        opacity: 0;   
+        min-height: 0;
+        min-width: 0;
+    }
+
 }

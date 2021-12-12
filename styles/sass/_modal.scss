@@ -47,7 +47,7 @@
         margin: 20px auto;
         align-items: center;
         img{
-            width: 150px;
+            min-width: 150px;
             height: 100px;
             object-fit: cover;
             margin: 10px;
@@ -91,3 +91,18 @@
     }
 }
 
+@media (max-width: 650px){
+    .modal{
+        z-index: 100;
+        .allImages {
+            display: flex;
+            flex-direction: row;
+            img{
+                min-width: auto;
+                height: 95px;
+                margin: 10px 3px;
+            }
+        }
+    }
+
+}

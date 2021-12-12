@@ -6,19 +6,22 @@
     width: 18%;
     transition:2s;
 }
+
 .sideBar{
+    // background: rgba(0, 0, 0, 0.726);
     transition: .5;
     position: relative;
     z-index: 50;
-
     div {
         position: sticky;
         top: 0;
         .biggerHeight{
             height: 70vh;
+            transition: .5s;
         }
         .smallerHeight{
             height: 40vh;
+            transition: .5s;
         }
         .profileImg{
             transition: .5;
@@ -26,20 +29,30 @@
             display: flex;
             flex-direction: column;
             justify-content: end;
+            height: 100%;
             img {
                 object-fit: contain;
                 
             }
         }
-
-        .sidebarFooter{
+        .tetTest{
+            transition: .5s;
+        }
+        .biggerFooter {
+            height: 60vh;
+        }
+        .smallerFooter {
             height: 30vh;
+        }
+        .sidebarFooter{
+            // height: 30vh; put it back
             padding: 20px; 
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             text-align: center;
             background: rgba(0, 0, 0, 0.377);
+            transition: .5s;
             .menuCntr{
                 display: flex;
                 flex-direction: column;
@@ -96,12 +109,29 @@
         }
     }
 }
-@media (max-width: 950px){
+// .left {
+//     left: -100%;
+// }
+@media (max-width: 1050px){
     .sideBar{
         // #profImgCntr {
         //     // height: 40vh;
         //     height: 31vh;
         //     }
+        div {
+            .sidebarFooter{
+                .menus{
+                    li {
+                        button{
+                            font-size: 1.3rem;
+                        }
+                    }
+                    .active{
+                        font-size: 1.7rem;
+                    }
+                }
+            }
+        }
     }
 
 }
@@ -112,9 +142,15 @@
         //     height: 31vh;
         //     }
         div {
+            .smallerHeight{
+                height: 25vh;
+            }
+            .biggerFooter{
+                height: 75vh;
+            }
             .sidebarFooter{
                 .socialLinks{
-                    flex-direction: row;
+                    flex-direction: column;
                     flex-wrap: wrap;
                     a {
                         font-size: 1.3rem;
@@ -128,5 +164,39 @@
         }
     }
     
+
+}
+
+@media (max-width: 650px){
+    .sideBar{
+        transition: .8s ease-in-out;
+        position: fixed;
+        z-index: 65;
+        width: 100%;
+        left: -100%;
+        div {
+            .biggerHeight{
+                height: 25vh;
+            }
+            .smallerFooter{
+                height: 75vh;
+            }
+            .profileImg {
+                img {
+                    width: 36%;
+                    margin-left: auto;
+                }
+            }
+            .sidebarFooter{
+                .menus{
+                    display: block;
+                }
+                background: rgba(0, 0, 0, 0.897);
+            }
+        }
+    }
+    .sideWidthSmll{
+        width: 100%;
+    }
 
 }

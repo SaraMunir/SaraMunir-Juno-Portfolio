@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sara Munir</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
@@ -39,65 +39,69 @@
             </div>
         </div>
     </div>
-    <div class="menuBtn">
-        <div class="hamBrgr"></div>
+    <div id="menuBtn" class="menuBtn" onclick="showMenu('sideBar')">
+        <div class="hamBrgr" id="hamBrgr"></div>
     </div>
     <div class="flexRow">
-        <section class="sideBar sideWidthBig" id="sideBar">
+        <section class="sideBar sideWidthBig left" id="sideBar">
             <div>
-                <div id="profImgCntr" class="profileImg biggerHeight"
-                data-aos="fade-right"
-                data-aos-mirror="true"
-                data-aos-once="true"
-                data-aos-duration="2000"
-                data-aos-delay="1500">
-                    <img id="profileImgC" src="./assets/myImg1.png" alt="photo of Sara Munir">
-                </div>
-                <div class="sidebarFooter"
-                data-aos="fade-right"
-                data-aos-mirror="true"
-                data-aos-once="true"
-                data-aos-duration="2000"
-                data-aos-delay="1500">
-                    <div class="menuCntr">
-                        <div class="menus hide">
-                            <ul>
-                                <li class="hvrCntr">
-                                    <a href="#about" class="hvrCntr">
-                                        <button class="notResponsive" id="aboutNavItm" onclick="showContent('aboutMe')">About Me</button>
-                                        <button class="responsive" id="aboutNavItm2" onclick="showContent('aboutMe')"><i class="fas fa-user-circle"></i></button>
-                                        <div class="hvrWndo">About Me</div>
-                                    </a>
-                                </li>
-                                <li class="hvrCntr">
-                                    <a href="#portfolio" class="hvrCntr">
-                                        <button class="notResponsive" id="aboutPortItm" onclick="showContent('portfolios')">Portfolio</button>
-                                        <button class="responsive" id="aboutPortItm2" onclick="showContent('portfolios')"><i class="fas fa-th"></i></button>
-                                        <div class="hvrWndo">Portfolio</div>
-                                    </a>
-                                </li>
-                                <li class="hvrCntr">
-                                    <a href="#contacts" class="hvrCntr">
-                                        <button class="notResponsive" id="contactsItm" onclick="showContent('contacts')"> Contact</button>
-                                        <button class="responsive" id="contactsItm2" onclick="showContent('contacts')"> <i class="far fa-address-book"></i></button>
-                                        <div class="hvrWndo" >Contacts</div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                <div class="proImgCntr biggerHeight" id="testProImg">
+                    <div id="profImgCntr" class="profileImg "
+                    data-aos="fade-right"
+                    data-aos-mirror="true"
+                    data-aos-once="true"
+                    data-aos-duration="2000"
+                    data-aos-delay="1500">
+                        <img id="profileImgC" src="./assets/myImg1.png" alt="photo of Sara Munir">
                     </div>
-                    <ul class="socialLinks">
-                        <li><a href="https://www.instagram.com/sarathewebdev/"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="https://twitter.com/saraMnrdev"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="https://www.linkedin.com/in/sara-munir"><i class="fab fa-linkedin"></i></a></li>
-                        <li><a href="https://github.com/SaraMunir"><i class="fab fa-github"></i></a></li>
-                    </ul>
-                    <p>created by <a href="https://saramunir.com/">Sara</a>  @<a href="https://junocollege.com/">Juno College</a>, 2021</p>
+                </div>
+                <div class="" id="sideBarFooterCntr">
+                    <div class="sidebarFooter smallerFooter"
+                    data-aos="fade-right"
+                    data-aos-mirror="true"
+                    data-aos-once="true"
+                    data-aos-duration="2000"
+                    data-aos-delay="1500">
+                        <div class="menuCntr">
+                            <div class="menus hide">
+                                <ul>
+                                    <li class="hvrCntr">
+                                        <a href="#about" class="hvrCntr">
+                                            <button class="notResponsive" id="aboutNavItm" onclick="showContent('aboutMe')">About Me</button>
+                                            <button class="responsive" id="aboutNavItm2" onclick="showContent('aboutMe')"><i class="fas fa-user-circle"></i></button>
+                                            <div class="hvrWndo">About Me</div>
+                                        </a>
+                                    </li>
+                                    <li class="hvrCntr">
+                                        <a href="#portfolio" class="hvrCntr">
+                                            <button class="notResponsive" id="aboutPortItm" onclick="showContent('portfolios')">Portfolio</button>
+                                            <button class="responsive" id="aboutPortItm2" onclick="showContent('portfolios')"><i class="fas fa-th"></i></button>
+                                            <div class="hvrWndo">Portfolio</div>
+                                        </a>
+                                    </li>
+                                    <li class="hvrCntr">
+                                        <a href="#contacts" class="hvrCntr">
+                                            <button class="notResponsive" id="contactsItm" onclick="showContent('contacts')"> Contact</button>
+                                            <button class="responsive" id="contactsItm2" onclick="showContent('contacts')"> <i class="far fa-address-book"></i></button>
+                                            <div class="hvrWndo" >Contacts</div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <ul class="socialLinks">
+                            <li><a href="https://www.instagram.com/sarathewebdev/"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="https://twitter.com/saraMnrdev"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/sara-munir"><i class="fab fa-linkedin"></i></a></li>
+                            <li><a href="https://github.com/SaraMunir"><i class="fab fa-github"></i></a></li>
+                        </ul>
+                        <p>created by <a href="https://saramunir.com/">Sara</a>  @<a href="https://junocollege.com/">Juno College</a>, 2021</p>
+                    </div>
                 </div>
             </div>
         </section>
         <main class="mainContent">
-            <img class="circleIcon" src="./assets/circle.png" alt="circle icone">
+            <img class="circleIcon" src="./assets/myLogoPink.png" alt="circle icone">
             <header >
                 <div class="heroText">
                     <h2 
@@ -208,14 +212,13 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div  id="sunRun" class="imgTop opacity">            
                                 <div class="content">
                                     <img src="./assets/add.png" alt="add icon" onclick="showDetail(0)">
-                                    <h3>Fitness</h3>
+                                    <h3>Sun Run</h3>
+                                    <p>fitness app</p>
                                 </div>
                                 <div class="btnCntr flexRow">
-                                    <button>Live Site</button>
                                     <button onfocusout="hideTop('sunRun')" onclick="showDetail(0)">load more</button>
                                 </div>
                             </div>
@@ -237,10 +240,11 @@
                             <div id="stitches" class="imgTop opacity">
                                 <div class="content">
                                     <img src="./assets/add.png" alt="add icon"  onclick="showDetail(3)">
-                                    <h3>Ecommerce</h3>
+                                    <h3>Stitches</h3>
+                                    <p>Eccommerce website</p>
+
                                 </div>
                                 <div class="btnCntr flexRow">
-                                    <button>Live Site</button>
                                     <button onfocusout="hideTop('stitches')"  onclick="showDetail(3)">load more</button>
                                 </div>
                             </div>
@@ -252,7 +256,6 @@
                             <div class="mainStack">
                                 <div class="square">
                                     <i class="fab fa-html5"></i>
-                                    <!-- <p>React</p> -->
                                 </div>
                                 <div class="flexRow">
                                     <div class="triangleLeft">
@@ -264,10 +267,11 @@
                             <div id="sophie" class="imgTop opacity">
                                 <div class="content">
                                     <img src="./assets/add.png" alt="add icon" onclick="showDetail(1)">
-                                    <h3>Life Style</h3>
+                                    <h3>Sophie</h3>
+                                    <p>Website for bloggin</p>
+
                                 </div>
                                 <div class="btnCntr flexRow">
-                                    <button>Live Site</button>
                                     <button onfocusout="hideTop('sophie')" onclick="showDetail(1)">load more</button>
                                 </div>
                             </div>
@@ -287,15 +291,12 @@
                                 </div>
                             </div>
                             <div id="thoughtEscape" class="imgTop opacity">
-                                <!--                             <img src="./assets/fireBasePink.png" alt="firebase db icon">
-                                    
- -->        
                                 <div class="content">
                                     <img src="./assets/add.png" alt="add icon" onclick="showDetail(2)">
-                                    <h3>social</h3>
+                                    <h3>Thought Escape</h3>
+                                    <p>Social Media Website</p>
                                 </div>
                                 <div class="btnCntr flexRow">
-                                    <button>Live Site</button>
                                     <button onfocusout="hideTop('thoughtEscape')" onclick="showDetail(2)">load more</button>
                                 </div>
                             </div>
@@ -307,7 +308,6 @@
                             <div class="mainStack">
                                 <div class="square">
                                     <img src="./assets/mongoLogoWhite.png" alt="firebase db icon">
-                                    <!-- <p>React</p> -->
                                 </div>
                                 <div class="flexRow">
                                     <div class="triangleLeft">
@@ -319,10 +319,10 @@
                             <div id="movieManix" class="imgTop opacity">
                                 <div class="content">
                                     <img src="./assets/add.png" alt="add icon" onclick="showDetail(4)">
-                                    <h3>Entertainment</h3>
+                                    <h3>Movie Maniax</h3>
+                                    <p>Entertainment Website</p>
                                 </div>
                                 <div class="btnCntr flexRow">
-                                    <button>Live Site</button>
                                     <button onfocusout="hideTop('thoughtEscape')" onclick="showDetail(4)">load more</button>
                                 </div>
                             </div>
@@ -332,7 +332,6 @@
                             <div class="mainStack">
                                 <div class="square">
                                     <img src="./assets/api.png" alt="firebase db icon">
-                                    <!-- <p>React</p> -->
                                 </div>
                                 <div class="flexRow">
                                     <div class="triangleLeft">
@@ -344,10 +343,10 @@
                             <div id="gameOfThrones" class="imgTop opacity">
                                 <div class="content">
                                     <img src="./assets/add.png" alt="add icon" onclick="showDetail(5)">
-                                    <h3>Fun & Games</h3>
+                                    <h3>GOT Trivia</h3>
+                                    <p>Quiz app</p>
                                 </div>
                                 <div class="btnCntr flexRow">
-                                    <button>Live Site</button>
                                     <button  onfocusout="hideTop('gameOfThrones')"  onclick="showDetail(5)">load more</button>
                                 </div>
                             </div>
@@ -360,10 +359,10 @@
                 <div class="flexRow detailWindow">
                     <div class="projectText">
                         <div class="projectTxtCntr">
-                            <div class="flexRow">
-                                <button class="closeProDetail">
-                                    <i class=" fas fa-times"  onclick="goBackToPortfolio()
-                                    "></i>
+                            <div class="flexRow cloProBtnCntr">
+                                <button class="closeProDetail"  onclick="goBackToPortfolio()
+                                ">
+                                    <i class=" fas fa-times"></i>
                                 </button>
                             </div>
                             <div class="projectMain">
@@ -375,9 +374,9 @@
                                 </div>
                                 <div class="flexRow">
                                     <div class="linksAndStacks">
-                                        <div class="buttons2">
-                                            <button>Live <i class="fas fa-wifi"></i></button>
-                                            <button>Git <i class="fab fa-github"></i></button>
+                                        <div class="buttons2" id="detailLinks">
+                                            <a href="#">Live <i class="fas fa-wifi"></i></a href="#">
+                                            <a href="#">Git <i class="fab fa-github"></i></a href="#">
                                         </div>
                                         <div>
                                             <h5>Stacks</h5>
@@ -406,7 +405,7 @@
                 <div class="contactTxt" id="contactSect">
                     <h2 class="contactShow"><span>./</span> Contact</h2>
                     <div class="contactMain">
-                        <h3> Send me a message</h3>
+                        <h3> I'm open to work or collaborate, feel free to <span>send me a message</span></h3>
                         <form  action="https://formsubmit.co/sara.m07011@gmail.com" method="POST">
                             <div>
                                 <label for="Name" hidden>Your Name:</label>
