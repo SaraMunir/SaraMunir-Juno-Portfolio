@@ -51,7 +51,6 @@ textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='let
 let menu = false
 let sideMenuMobile 
 const showMenu=(id)=>{
-    console.log(id)
     sideMenuMobile=id
     if(menu === false){
         $('#hamBrgr').addClass('open');
@@ -155,18 +154,15 @@ const nextImg =(idx, imgIdx)=>{
     }
 }
 function showTop(cat){
-    console.log(cat)
     $(`#${cat}`).removeClass( "opacity" )
 }
 function hideTop(cat){
-    console.log(cat)
     $(`#${cat}`).addClass( "opacity" )
 }
 const prevImg =(idx, imgIdx)=>{
     if(imgIdx > 0){
         renderModalImg(idx , (Number(imgIdx)-1) )
     }else {
-        console.log('no more image availalbe')
         renderModalImg(idx , projects[idx].images.length-1  )
         return
     }
@@ -199,8 +195,6 @@ const showDetail=async(id)=>{
         </a>
         `)
     })
-    console.log(projects[id].website)
-    console.log(projects[id].github)
 
     $('#detailLinks').html(`
         <a href="${projects[id].website}">Live <i class="fas fa-wifi"></i></a href="#">
@@ -254,7 +248,6 @@ const showDetail=async(id)=>{
             await fetch(`https://api.github.com/users/${collaborator.github}`)
                 .then(res => res.json())
                 .then(data => {
-                console.log(data)
                 $('#projectCollabs').append(
                 `
                     <button class="collabCntr" href="${collaborator.website}">
@@ -278,7 +271,6 @@ const goBackToPortfolio=()=>{
         $('#projectDescription').html('')
         $('#projectImgs').html('')
         $('#projectCollabs').html('')
-        // $('.imageArray').html('')
         $('.stackArray').html('')
     }, 500);
 }
