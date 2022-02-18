@@ -391,7 +391,7 @@ const projects=[
         requirements: [],
         collaborators: [],
         createdOn: '',
-        website: 'https://thought-scape.herokuapp.com/',
+        website: 'https://objective-heisenberg-ab7d8c.netlify.app/',
         github: "https://github.com/SaraMunir/sara-munir-juno-project3",
         images: [
             './assets/thoughtEscapeImgs1.png',
